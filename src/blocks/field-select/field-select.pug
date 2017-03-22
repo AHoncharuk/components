@@ -1,0 +1,25 @@
+include ../input/input
+include ../label/label
+
+mixin field-select(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +label('field-select')&attributes(attributes)
+    +b(class='field-select__name')= data.name
+    +b(class='field-select__input-wrap')
+      select(class='field-select__input')(multiple=data.multiple required=validation.required)
+        each val, index in data.options
+          if typeof(val) === 'object' && !val.selected
+            optgroup(label=index)
+              each item, index in val
+                if typeof(item) === 'object'
+                  option(value=index selected=item.selected)= item.name
+                else
+                  option(value=index)= item
+          else
+            if typeof(val) === 'object' && val.selected
+              option(value=index selected=val.selected)= val.name
+            else
+              option(value=index)= val
+      if data.help
+        small(class='field-select__help')= data.help

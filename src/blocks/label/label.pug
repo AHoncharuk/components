@@ -1,0 +1,7 @@
+mixin label(cName)
+  if cName
+    +b('label')(class=cName)&attributes(attributes)
+      block
+  else
+    +b('label')(class='label')&attributes(attributes)
+      block

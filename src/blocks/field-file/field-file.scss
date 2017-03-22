@@ -1,0 +1,93 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/file/file.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.field-file {
+  display: block;
+  margin-bottom: ($line-height / 2);
+
+  &__name {
+    display: block;
+    margin-bottom: ($line-height / 2);
+    font-weight: 700;
+  }
+
+  &__input-wrap {
+    display: block;
+    position: relative;
+  }
+
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+
+    &:focus ~ .file__name-text {
+      @include focus();
+    }
+  }
+
+  &__name-text {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 2.125em;
+    padding-right: $field-padding-horizontal;
+    vertical-align: middle;
+    overflow: hidden;
+    line-height: $line-height;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background-color: $white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &:before {
+      content: attr(data-button-text);
+      display: inline-flex;
+      align-items: center;
+      height: 2.125em;
+      margin-right: $field-padding-horizontal;
+      padding-top: $field-padding-top;
+      padding-right: $field-padding-horizontal;
+      padding-bottom: $field-padding-bottom;
+      padding-left: $field-padding-horizontal;
+      vertical-align: middle;
+      line-height: $line-height;
+      background-color: $gray-lighter;
+      border: 1px solid $border-color;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      transform: translateX(-1px) translateY(-1px);
+    }
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        background-color: darken($gray-lighter, 10%);
+      }
+    }
+
+    &__help-text {
+      @include help-text();
+    }
+  }
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: default;
+
+    .field-file__name-text:hover,
+    .field-file__name-text:focus {
+
+      &:before {
+        background-color: $gray-lighter;
+      }
+    }
+  }
+}

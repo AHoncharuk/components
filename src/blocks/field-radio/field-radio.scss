@@ -1,0 +1,66 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/radio/radio.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.field-radio {
+  position: relative;
+  display: inline-block;
+  padding-left: 2rem;
+  margin-right: 0.5em;
+  font-weight: 400;
+  line-height: $line-height;
+
+  &__input {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+
+  // &__text {
+  //
+  // }
+}
+
+.field-radio--custom {
+
+  .field-radio__input {
+    position: absolute;
+    opacity: 0;
+
+    & + .field-radio__text:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1.25em;
+      height: 1.25em;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMkQyRDJEIiBkPSJNMTIgMjAuMDE2cTMuMjggMCA1LjY0OC0yLjM2N1QyMC4wMTUgMTJ0LTIuMzY3LTUuNjQ3VDEyIDMuOTg2IDYuMzUyIDYuMzUzIDMuOTg1IDEydDIuMzY3IDUuNjVUMTIgMjAuMDE1em0wLTE4cTQuMTI1IDAgNy4wNTUgMi45M1QyMS45ODUgMTJ0LTIuOTMgNy4wNTZUMTIgMjEuOTg2dC03LjA1NS0yLjkzVDIuMDE1IDEydDIuOTMtNy4wNTRUMTIgMi4wMTZ6Ii8+PC9zdmc+");
+    }
+
+    &:checked + .field-radio__text:before {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMkQyRDJEIiBkPSJNMTIgMjAuMDE2cTMuMjggMCA1LjY0OC0yLjM2N1QyMC4wMTUgMTJ0LTIuMzY3LTUuNjQ3VDEyIDMuOTg2IDYuMzUyIDYuMzUzIDMuOTg1IDEydDIuMzY3IDUuNjVUMTIgMjAuMDE1em0wLTE4cTQuMTI1IDAgNy4wNTUgMi45M1QyMS45ODUgMTJ0LTIuOTMgNy4wNTZUMTIgMjEuOTg2dC03LjA1NS0yLjkzVDIuMDE1IDEydDIuOTMtNy4wNTRUMTIgMi4wMTZ6bTAgNC45NjhxMi4wNjMgMCAzLjU0IDEuNDc3VDE3LjAxNSAxMnQtMS40NzcgMy41NFQxMiAxNy4wMTUgOC40NiAxNS41NCA2Ljk4NSAxMiA4LjQ2IDguNDYgMTIgNi45ODV6Ii8+PC9zdmc+");
+    }
+
+    &:focus + .field-radio__text:before {
+      @include focus();
+    }
+  }
+}
+
+.field-radio--disabled {
+
+  .field-radio__input + .field-radio__text:before {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .field-radio__text {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

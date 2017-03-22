@@ -1,0 +1,10 @@
+include ../label/label
+include ../input/input
+
+mixin field-radio(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +label('field-radio')&attributes(attributes)
+    +input('radio')(class='field-radio__input' checked=data.checked name=data.name required=validation.required)
+    +e('span')(class='text')
+      block

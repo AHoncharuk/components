@@ -1,0 +1,136 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/btn/btn.scss";
+
+@import "../../scss/variables.scss";
+
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.125em;
+  margin: 0;
+  padding: $field-padding-top $field-padding-horizontal $field-padding-bottom;
+  font-size: 1em;
+  font-family: inherit;
+  line-height: $line-height;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+  @include button-color($text-color, $gray-lighter, $gray-light);
+  @include border-radius($border-radius);
+  background-image: none;
+  user-select: none;
+  cursor: pointer;
+
+  &--hover,
+  &:hover {
+    @include button-color--hover($text-color, $gray-lighter, $gray-light);
+    text-decoration: none;
+  }
+
+  &--active,
+  &:active,
+  &:focus {
+    @include button-color--active($text-color, $gray-lighter, $gray-light);
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &--disabled,
+  &:disabled {
+    @include button-color($text-color, $gray-lighter, $gray-light);
+    opacity: $opacity;
+    cursor: not-allowed;
+  }
+
+  &--full {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+
+    & + & {
+      margin-top: $line-height / 2;
+    }
+  }
+}
+
+.btn--main {
+  @include button-color($white, $color-main);
+
+  &--hover,
+  &:hover {
+    @include button-color--hover($white, $color-main);
+  }
+
+  &--active,
+  &:active,
+  &:focus {
+    @include button-color--active($white, $color-main);
+  }
+
+  &--disabled,
+  &:disabled {
+    @include button-color($white, $color-main);
+  }
+}
+
+.btn--danger {
+  @include button-color($white, $color-danger);
+
+  &--hover,
+  &:hover {
+    @include button-color--hover($white, $color-danger);
+  }
+
+  &--active,
+  &:active,
+  &:focus {
+    @include button-color--active($white, $color-danger);
+  }
+
+  &--disabled,
+  &:disabled {
+    @include button-color($white, $color-danger);
+  }
+}
+
+.btn--success {
+  @include button-color($white, $color-success);
+
+  &--hover,
+  &:hover {
+    @include button-color--hover($white, $color-success);
+  }
+
+  &--active,
+  &:active,
+  &:focus {
+    @include button-color--active($white, $color-success);
+  }
+
+  &--disabled,
+  &:disabled {
+    @include button-color($white, $color-success);
+  }
+}
+
+.btn--close {
+  display: block;
+  min-height: 100%;
+  @include size(20px);
+  padding: 0;
+  background: none;
+  border: none;
+
+  &:hover {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.nekki {
+  stroke: $white;
+}

@@ -1,0 +1,17 @@
+include ../btn/btn
+
+mixin alert(heading, dismiss)
+  - data=data || {}
+    if dismiss
+      +b(class='alert alert--dismissible alert--fade alert--show' role='alert')&attributes(attributes)
+        if heading
+          +e('h4')(class='heading')= heading 
+        +e(class='close')
+          +btn('close')(data-dismiss='alert' aria-label='close')
+            +e('span')(aria-hidden='true')
+        block
+    else  
+      +b(class='alert' role='alert')&attributes(attributes)
+        if heading
+          +e('h4')(class='heading')= heading 
+        block

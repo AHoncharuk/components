@@ -1,0 +1,125 @@
+// // Базовые цвета
+$gray-darkest:                #1c1c1c;
+$gray-darker:                 #3a3a3a;
+$gray-dark:                   #5f5f5f;
+$gray:                        #808080;
+$gray-light:                  #b1b1b1;
+$gray-lighter:                #eceeef;
+$gray-lightest:               #f7f7f9;
+$white:                       #ffffff;
+
+$color-main:                  #0275d8;
+$color-success:               #5cb85c;
+$color-danger:                #d9534f;
+
+
+// Семантические цвета
+$text-color:                  $gray-darkest;
+$text-color--muted:           $gray;
+$body-bg:                     $white;
+$link-color:                  $color-main;
+$link-color--hover:           darken($color-main, 15%);
+$border-color:                $gray-light;
+$line-height:                 1.2em;
+
+
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+
+// Grid columns
+// Set the number of columns and specify the width of the gutters.
+$grid-columns:               12 !default;
+$grid-gutter-width-base:     30px !default;
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
+) !default;
+
+
+// Grid breakpoints
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+
+// // Базовая типографика (<=479: 1 rem = 8px, >=480: 1rem = 10px)
+// // Для лёгкого пересчёта: http://pxtoem.com/
+$font-size:                   1.6rem;
+$font-size--h1:               2.25em;  // 3.6rem;
+$font-size--h2:               1.875em; // 3rem;
+$font-size--h3:               1.5em;   // 2.4rem;
+$font-size--h4:               1.25em;  // 2.0rem;
+$font-size--h5:               1em;     // 1.6rem
+$font-size--h6:               1em;     // 1.6rem
+$font-size--small:            0.75em;
+$font-size--small-percent:    75%;
+
+// font family
+$font-family:                 -apple-system, BlinkMacSystemFont, "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+$font-family--serif:          Georgia, "Times New Roman", Times, serif;
+$font-family--monospace:      Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family--headings:       $font-family;
+
+
+// Формы, кнопки
+$field-padding-top:           0.5em;
+$field-padding-bottom:        0.5em;
+$field-padding-horizontal:    0.7rem;
+
+
+//options
+$enable-transitions:        true !default;
+$enable-grid-classes:       true !default;
+$transition-fade:           opacity 0.15s linear !default;
+
+// Разное
+$enable-rounded: true;
+$border-radius:               0.3rem;
+$opacity:                     0.7;
+$transition-time:             0.3s;
+$shadow:                      0 4px 2px -2px rgba(0, 0, 0, 0.3);

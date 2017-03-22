@@ -1,0 +1,32 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/radio-group/radio-group.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.radio-group {
+  display: block;
+  margin-bottom: $line-height / 2;
+
+  &__title {
+    display: block;
+    min-height: 1px;
+    margin-bottom: $line-height / 4;
+    font-weight: 700;
+    line-height: $line-height;
+  }
+
+  &__help {
+    @include help-text();
+    padding-left: 2rem;
+  }
+}
+
+.radio-group--custom {
+
+  .radio {
+    padding-left: 1.6em;
+  }
+
+  .radio-group__help {
+    padding-left: 1.6em;
+  }
+}

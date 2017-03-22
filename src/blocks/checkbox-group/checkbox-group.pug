@@ -1,0 +1,6 @@
+mixin checkbox-group(title, help)
+  +b(class='checkbox-group')&attributes(attributes)
+    +e(class='title')= title
+    +e(class='content')
+      block
+    +e(class='help')= help

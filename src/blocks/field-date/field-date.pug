@@ -1,0 +1,12 @@
+include ../input/input
+include ../label/label
+
+mixin field-date(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +label('field-date')&attributes(attributes)
+    +b(class='field-date__name')= data.name
+    +b(class='field-date__input-wrap')
+      +input('text')(id=data.id class='field-date__input' required=validation.required readonly='readonly')
+      if data.help
+        small(class='field-date__help')= data.help

@@ -1,0 +1,17 @@
+include ../input/input
+include ../label/label
+
+mixin field-toggler(title, data, help, type)
+  +b(class='field-toggler')&attributes(attributes)
+    +e('div')(class='title')= title
+    +e('div')(class='input-wrap')
+      if typeof(data) === 'object'
+        each item in data
+          +label('field-toggler__name')
+            +input(type)(class='field-toggler__input' name=item.name)
+            +e('span')(class='name-text')= item.text
+      else
+        +label('field-toggler__name')
+          +input(type)(class='field-toggler__input')
+          +e('span')(class='name-text')= data
+      +e('div')(class='help-text')= help

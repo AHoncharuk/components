@@ -1,0 +1,18 @@
+include ../link/link
+include ../input/input
+
+mixin btn(type, href)
+  if type === 'button' || type === 'submit'
+    +b('button')(class='btn' type=type)&attributes(attributes)
+      block
+  else if type === 'link'
+    +link(href)(class='btn')&attributes(attributes)
+      block
+  else if type === 'input'
+    +input('submit')(class='btn' type='submit')&attributes(attributes)
+      block
+  else if type === 'close'
+    +b('button')(class='btn btn--close' type='button')&attributes(attributes)
+      +e('svg')(width='20' height='20')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#close')
+      block      

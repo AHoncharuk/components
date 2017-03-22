@@ -1,0 +1,7 @@
+# перечисление игнорируемых stylelint-ом файлов
+src/scss/plugins/
+src/scss/utilities/_flex.scss
+src/scss/_grid.scss
+src/scss/global/_global-print.scss
+src/scss/global/_global-scaffolding.scss
+src/scss/mixins/common/_visibility.scss

@@ -1,0 +1,46 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/field-date/field-date.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.field-date {
+  display: block;
+  margin-bottom: $line-height / 2;
+
+  &__name {
+    display: block;
+    margin-bottom: $line-height / 4;
+    font-weight: 700;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100%;
+    height: 2.125em;
+    padding: $field-padding-top 1.8em $field-padding-top $field-padding-horizontal;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: $line-height;
+    background-color: $white;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNyAxMSIgd2lkdGg9IjE3IiBoZWlnaHQ9IjExIj48cGF0aCBmaWxsPSIjQjFCMUIxIiBkPSJNLjIwMiAxLjk3TDEuOTU2LjIwNEEuNjEuNjEgMCAwIDEgMi40MyAwYS42MS42MSAwIDAgMSAuNDcuMjA0TDguNSA1Ljg0IDE0LjEuMjA0QS42MS42MSAwIDAgMSAxNC41NyAwYS42MS42MSAwIDAgMSAuNDc0LjIwNGwxLjc1NCAxLjc2NmEuNjE4LjYxOCAwIDAgMSAuMjAyLjQ3My42Mi42MiAwIDAgMS0uMjAyLjQ3NmwtNy44MjYgNy44NzVBLjYxLjYxIDAgMCAxIDguNSAxMWEuNjEuNjEgMCAwIDEtLjQ3Mi0uMjA0TC4yMDIgMi45MkEuNjE4LjYxOCAwIDAgMSAwIDIuNDQ0YzAtLjIwMy4wNjctLjM0LjIwMi0uNDc1eiIvPjwvc3ZnPg==");
+    background-repeat: no-repeat;
+    background-position: right 0.3em center;
+    background-size: 1.063em 0.688em;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    appearance: none;
+  }
+
+  &:focus {
+    @include focus();
+  }
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &__help {
+    @include help-text();
+  }
+}

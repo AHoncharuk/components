@@ -1,0 +1,19 @@
+// button color
+
+@mixin button-color($color, $background, $border: $background) {
+  color: $color;
+  background-color: $background;
+  border: 1px solid $border;
+}
+
+@mixin button-color--hover($color, $background, $border: $background) {
+  color: $color;
+  background-color: darken($background, 10%);
+  border: 1px solid darken($border, 12%);
+}
+
+@mixin button-color--active($color, $background, $border: $background) {
+  color: $color;
+  background-color: darken($background, 15%);
+  border: 1px solid darken($border, 17%);
+}

@@ -1,0 +1,17 @@
+include ../label/label
+include ../input/input
+
+mixin field-checkbox(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +label('field-checkbox')&attributes(attributes)
+    +input('checkbox')(
+      class='field-checkbox__input'
+      checked =data.checked
+      name=data.name
+      data-parsley-mincheck=validation.mincheck
+      data-parsley-maxcheck=validation.maxcheck
+      required=validation.required
+      )
+    +e('span')(class='text')
+      block

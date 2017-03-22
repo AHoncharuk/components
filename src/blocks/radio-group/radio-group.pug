@@ -1,0 +1,6 @@
+mixin radio-group(title, help)
+  +b(class='radio-group')&attributes(attributes)
+    +e(class='title')= title
+    +e(class='content')
+      block
+    +e(class='help')= help

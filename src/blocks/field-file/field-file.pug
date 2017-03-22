@@ -1,0 +1,18 @@
+include ../label/label
+include ../input/input
+
+mixin field-file(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +b(class='field-file')&attributes(attributes)
+    +e(class='name')= data.name
+    +label('field-file__input-wrap')
+      +input('file')(
+        class='field-file__input'
+        data-multilple-caption='файлов выбрано: { count }'
+        multiple
+        data-parsley-max-file-size=validation.maxsize
+        required=validation.required)
+      +e(class='name-text' data-button-text='Выбрать файл(ы)') Ничего не выбрано
+      if data.help
+        +e(class='help-text')= data.help

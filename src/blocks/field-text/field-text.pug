@@ -1,0 +1,36 @@
+include ../label/label
+include ../input/input
+
+mixin field-text(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +label('field-text')&attributes(attributes)
+    +e('div')(class='name')
+      block
+    +e('div')(class='input-wrap')
+      if data.type === 'textarea'
+        textarea(class='field-text__input'
+        data-parsley-trigger=validation.trigger
+        data-parsley-type=validation.type
+        data-parsley-minlength=validation.minlength
+        data-parsley-maxlength=validation.maxlength
+        data-parsley-min=validation.min
+        data-parsley-max=validation.max
+        data-parsley-equalto=validation.equal
+        name=data.name
+        required=validation.required
+        placeholder=data.placeholder)
+      else
+        +input(data.type)(class='field-text__input'
+        data-parsley-trigger=validation.trigger
+        data-parsley-type=validation.type
+        data-parsley-minlength=validation.minlength
+        data-parsley-maxlength=validation.maxlength
+        data-parsley-min=validation.min
+        data-parsley-max=validation.max
+        data-parsley-equalto=validation.equal
+        name=data.name
+        required=validation.required
+        placeholder=data.placeholder)
+      if data.help
+        +e('div')(class='help-text')= data.help

@@ -1,0 +1,79 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/field-toggler/field-toggler.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.field-toggler {
+  display: block;
+  margin-bottom: $line-height / 2;
+
+  &__title {
+    display: block;
+    min-height: 1px;
+    margin-bottom: $line-height / 4;
+    font-weight: 700;
+    line-height: $line-height;
+  }
+
+  &__name {
+    position: relative;
+    display: inline-block;
+    min-height: 20px;
+    margin-right: 0.6em;
+    padding-left: 43px;
+    font-weight: 400;
+    line-height: $line-height;
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+
+    & + .field-toggler__name-text:before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      transform: translateY(-50%);
+      left: 0;
+      @include size(34px, 20px);
+      background-color: $gray-lighter;
+      border: 1px solid $border-color;
+      transition: background-color 0.3s;
+    }
+
+    & + .field-toggler__name-text:after {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      transform: translateY(-50%);
+      left: 2px;
+      @include size(16px);
+      background-color: $white;
+      border: 1px solid $border-color;
+      transition: left 0.3s;
+    }
+
+    &:checked + .field-toggler__name-text:before {
+      background-color: $gray-light;
+      border: 1px solid $gray;
+    }
+
+    &:checked + .field-toggler__name-text:after {
+      left: 16px;
+      border: 1px solid $gray;
+    }
+
+    &:focus + .field-toggler__name-text:before {
+      @include focus();
+    }
+  }
+
+  &__help-text {
+    @include help-text();
+    padding-left: 43px;
+  }
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

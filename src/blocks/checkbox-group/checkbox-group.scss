@@ -1,0 +1,32 @@
+// Для импорта в диспетчер подключений: @import './src/blocks/checkbox-group/checkbox-group.scss';
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+.checkbox-group {
+  display: block;
+  margin-bottom: $line-height / 2;
+
+  &__title {
+    display: block;
+    min-height: 1px;
+    margin-bottom: $line-height / 4;
+    font-weight: 700;
+    line-height: $line-height;
+  }
+
+  &__help {
+    @include help-text();
+    padding-left: 2rem;
+  }
+}
+
+.checkbox-group--custom {
+
+  .checkbox {
+    padding-left: 1.6em;
+  }
+
+  .checkbox-group__help {
+    padding-left: 1.6em;
+  }
+}

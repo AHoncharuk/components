@@ -1,0 +1,70 @@
+// Для импорта в диспетчер подключений: @import "./src/blocks/alert/alert.scss";
+
+@import "../../scss/variables.scss";     // только для удобства обращения к переменным
+
+$alert-padding-y: 1.5em;
+$alert-padding-x: 1.5rem;
+$alert-border-width: 1px;
+$alert-border-radius: 0.3rem;
+$alert-link-font-weight: 400;
+
+
+// Base styles
+.alert {
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: ($line-height / 2);
+  border: $alert-border-width solid transparent;
+  @include border-radius($alert-border-radius);
+
+  &--fade {
+    opacity: 0;
+    @include transition($transition-fade);
+  }
+}
+
+.alert--fade.alert--show {
+  opacity: 1;
+}
+
+// Headings for larger alerts
+.alert__heading {
+  color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert__link {
+  font-weight: $alert-link-font-weight;
+}
+
+
+// Dismissible alerts
+// Expand the right padding and account for the close button"s positioning.
+.alert--dismissible {
+  // Adjust close link position
+  .alert__close {
+    position: absolute;
+    top: $alert-padding-y;
+    right: $alert-padding-x;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
+
+
+// Alternate styles
+// Generate contextual modifier classes for colorizing the alert.
+.alert--success {
+  @include alert-variant($color-success, $color-success, $white);
+}
+
+// .alert--info {
+//   @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+// }
+
+.alert--warning {
+  @include alert-variant($color-main, $color-main, $white);
+}
+
+.alert--danger {
+  @include alert-variant($color-danger, $color-danger, $white);
+}

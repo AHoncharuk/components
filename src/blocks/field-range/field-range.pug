@@ -1,0 +1,17 @@
+include ../input/input
+
+mixin field-range(data, validation)
+  - data=data || {}
+  - validation=validation || {}
+  +b(class='field-range')&attributes(attributes)
+    +e('div')(class='name')= data.name
+    +e('div')(class='input-wrap')
+      +input('range')(
+        class='field-range__input'
+        min=data.min
+        max=data.max
+        step=data.step
+        value=data.value
+        data-parsley-min=validation.min
+        data-parsley-max=validation.max)
+      +e('div')(class='help-text')= help
