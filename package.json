@@ -51,9 +51,7 @@
     "addCssAfter": [
       "./src/scss/print.scss"
     ],
-    "singleCompiled": [
-
-    ],
+    "singleCompiled": [],
     "addJsBefore": [
       "./node_modules/jquery/dist/jquery.min.js",
       "./node_modules/jquery-migrate/dist/jquery-migrate.min.js",
@@ -95,7 +93,7 @@
     "expose": "^0.1.4",
     "expose-loader": "^0.7.3",
     "gsap": "^1.19.1",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-cleancss": "^0.2.2",
     "gulp-concat": "^2.6.0",
@@ -111,6 +109,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svgmin": "^1.2.3",
@@ -120,6 +119,7 @@
     "gulp-webpack": "^1.5.0",
     "gulp.spritesmith": "^6.3.0",
     "gulplog": "^1.0.0",
+    "happypack": "^3.0.3",
     "imagemin-pngquant": "^5.0.0",
     "karma": "^1.5.0",
     "karma-babel-preprocessor": "^6.0.1",
@@ -170,6 +170,6 @@
     "modernizr": "^3.3.1",
     "sass-mq": "^3.3.2",
     "webpack-stats-logger": "^1.0.1",
-    "webpack-stream": "^3.2.0"
+    "webpack": "^1.12.9",
   }
 }

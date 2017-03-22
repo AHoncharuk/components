@@ -3,55 +3,39 @@ import errorHandler from 'gulp-plumber-error-handler'
 import gulp from 'gulp'
 import makeWebpackConfig from '../webpack.config.js'
 import plumber from 'gulp-plumber'
-// import statsLogger from 'webpack-stats-logger'
-import webpackStream from 'webpack-stream'
+import statsLogger from 'webpack-stats-logger'
+import webpack from 'webpack'
 
 // const webpack = webpackStream.webpack
 const { NOTIFY } = process.env
+const scriptsErrorHandler = errorHandler('Error in \'scripts\' task')
 
-// Файлы компилируемых компонентов
-// const blocks = getComponentsFiles()
-//
-// // Вывод в консоль информации о взятых в сборку файлах
-// if (blocks.js.length) {
-//   console.log('---------- В сборку и обработку взяты JS-файлы (указана последовательность):')
-//   console.log(blocks.js)
-// }
+function runWebpack(watch = false) {
+	return function (callback) {
+		const webpackConfig = makeWebpackConfig({
+			watch,
+			debug: isDev,
+			sourcemaps: isDev,
+			notify: NOTIFY
+		});
 
-gulp.task('scripts', (callback) => {
+		return webpack(webpackConfig, (error, stats) => {
+			const jsonStats = stats.toJson();
+			if (jsonStats.errors.length) {
+				jsonStats.errors.forEach(message => {
+					scriptsErrorHandler.call({emit() {/* noop */}}, {message});
+				});
+			}
+			statsLogger(error, stats);
 
-  let firstBuildReady = false
-  function done(err) { // stats
-    firstBuildReady = true
+			// solve the issue https://github.com/CSSSR/csssr-project-template/issues/169
+			if (watch === false) {
+				callback();
+			}
+		});
+	};
+}
 
-    if (err) {
-      return
-    }
+gulp.task('scripts', runWebpack(false));
 
-    //  gulplog[stats.hasErrors() ? 'error' : 'info'](stats.toString({
-    //    colors: true
-    //  }))
-  }
-
-  const webpackConfig = makeWebpackConfig({
-    watch: false,
-    sourcemaps: isDev,
-    notify: NOTIFY
-  })
-
-// if(lists.js.length > 0) {
-  return gulp
-    .src('src/js/global-script.js')
-    .pipe(plumber({
-      errorHandler: errorHandler('Error in "scripts" task')
-    }))
-    .pipe(webpackStream(webpackConfig, null, done))
-    .pipe(gulp.dest(`${dirs.buildPatch}/js`))
-    .on('data', () => {
-      if (firstBuildReady) {
-        callback()
-      }
-    })
-// }
-
-})
+gulp.task('scripts:watch', runWebpack(true));

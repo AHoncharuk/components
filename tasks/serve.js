@@ -1,9 +1,9 @@
-import { browserSync, dirs, getComponentsFiles, port, reloader, lists } from './utils/utils'
+import { browserSync, dirs, getComponentsFiles, port, reload, lists } from './utils/utils'
 import gulp from 'gulp'
 import pjson from '../package.json'
 
 // Локальный сервер, слежение
-gulp.task('serve', gulp.series('build', () => {
+gulp.task('serve', ['build'], () => {
   browserSync.init({
     server: dirs.buildPath,
     port:8080,
@@ -54,7 +54,16 @@ gulp.task('serve', gulp.series('build', () => {
     gulp.watch('*.png', {cwd: spritePngPath}, ['watch:sprite:png']); // следит за новыми и удаляемыми файлами
   }
 
-}))
+})
+
+gulp.task('watch:img', ['copy:img'], reload);
+gulp.task('watch:copied:js', ['copy:js'], reload);
+gulp.task('watch:fonts', ['copy:fonts'], reload);
+gulp.task('watch:pug', ['html'], reload);
+// gulp.task('watch:js', ['js'], reload);
+gulp.task('watch:sprite:svg', ['sprite:svg'], reload);
+gulp.task('watch:sprite:png', ['sprite:png'], reload);
+
 
 // Задача по умолчанию
-gulp.task('default', gulp.series('serve'))
+gulp.task('default', ['serve']);

@@ -87,7 +87,7 @@ export function uniqueArray(arr) {
 }
 
 // Перезагрузка в браузере
-export function reloader(done) {
+export function reload(done) {
   browserSync.reload()
   done()
 }
