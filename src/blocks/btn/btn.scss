@@ -18,7 +18,7 @@
   text-decoration: none;
   text-transform: none;
   white-space: nowrap;
-  @include button-color($text-color, $gray-lighter, $gray-light);
+  @include button-color($text-color, green, $gray-light);
   @include border-radius($border-radius);
   background-image: none;
   user-select: none;

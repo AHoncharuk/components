@@ -29,14 +29,14 @@ export default function makeWebpackConfig({
 	eslint = true
 }) {
 	return {
-		entry: path.resolve('./app/scripts/app.js'),
+		entry: path.resolve('./src/js/script.js'),
 		watch,
 		debug,
 		bail: false,
 		profile: true,
 		output: {
-			path: path.resolve('./dist/assets/scripts/'),
-			filename: 'app.min.js',
+			path: path.resolve('./build/js'),
+			filename: 'script.min.js',
 			pathinfo: false
 		},
 		devtool: (sourcemaps || !debug) ? '#source-map' : 'eval',
@@ -87,7 +87,7 @@ export default function makeWebpackConfig({
 			new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}, output: {comments: false}})
 		]),
 		eslint: {
-			configFile: path.join(__dirname, '.eslintrc'),
+			configFile: path.join(__dirname, '.eslintrc.json'),
 			emitErrors: false,
 			emitWarning: true,
 			formatter: eslintFormatter({notify})

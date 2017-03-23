@@ -19,3 +19,7 @@ node_modules/
 .publish
 ex_files
 Thumbs.db
+.happypack/
+.happypack/cache--1.json
+.happypack/s--1841476924
+.happypack/s--1841476924.map

@@ -6,8 +6,8 @@ import pjson from '../package.json'
 gulp.task('serve', ['build'], () => {
   browserSync.init({
     server: dirs.buildPath,
-    port:8080,
-    open: false,
+    port:3000,
+    open: true,
     startPath: 'index.html'
   })
   gulp.watch([
@@ -35,21 +35,23 @@ gulp.task('serve', ['build'], () => {
    // Слежение за шрифтами
    gulp.watch('/fonts/*.{ttf,woff,woff2,eot,svg}', {cwd: dirs.srcPath}, ['watch:fonts']);
 
+//слежение за js
+gulp.start('scripts:watch');
+
 //слежение за pug
   gulp.watch([
     `${dirs.blocksDirName}/**/*.pug`,
-    `${dirs.blocksDirName}/blocks/**/*.pug`
+    `*.pug`
   ], {cwd: dirs.srcPath}, ['watch:pug'])
 
-  // // Слежение за JS
-  // if(lists.js.length) {
-  //   gulp.watch(lists.js, ['watch:js']);
-  // }
+
   // Слежение за SVG (спрайты)
+  let spriteSvgPath = dirs.srcPath + dirs.blocksDirName + '/sprite-svg/svg/';
   if((pjson.configProject.blocks['sprite-svg']) !== undefined) {
     gulp.watch('*.svg', {cwd: spriteSvgPath}, ['watch:sprite:svg']); // следит за новыми и удаляемыми файлами
   }
   // Слежение за PNG (спрайты)
+  let spritePngPath = dirs.srcPath + dirs.blocksDirName + '/sprite-png/png/';
   if((pjson.configProject.blocks['sprite-png']) !== undefined) {
     gulp.watch('*.png', {cwd: spritePngPath}, ['watch:sprite:png']); // следит за новыми и удаляемыми файлами
   }
@@ -59,7 +61,7 @@ gulp.task('serve', ['build'], () => {
 gulp.task('watch:img', ['copy:img'], reload);
 gulp.task('watch:copied:js', ['copy:js'], reload);
 gulp.task('watch:fonts', ['copy:fonts'], reload);
-gulp.task('watch:pug', ['html'], reload);
+gulp.task('watch:pug', ['pug'], reload);
 // gulp.task('watch:js', ['js'], reload);
 gulp.task('watch:sprite:svg', ['sprite:svg'], reload);
 gulp.task('watch:sprite:png', ['sprite:png'], reload);

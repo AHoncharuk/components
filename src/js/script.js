@@ -3,4 +3,5 @@ import $ from 'jquery'
 import alert from '../blocks/alert/alert'
 // import Util from './utils/util'
 // import { TweenMax, TweenLite, CSSPlugin, TimelineMax, TimelineLite } from 'gsap'
-// console.log('nekki')
+console.log('nekki')
+console.log('nesfssf')
