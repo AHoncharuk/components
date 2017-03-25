@@ -27,10 +27,10 @@ gulp.task('pug', () => {
       errorHandler: errorHandler('Error in "templates" task')
     }))
     .pipe(cached('pug'))
-    // .pipe(gulpIf(global.watch, inheritance({
-    //   basedir: 'src'
-    // }
-    // )))
+    .pipe(gulpIf(global.watch, inheritance({
+      basedir: 'src'
+    }
+    )))
     .pipe(filter((file) => /src[\\\/]pages/.test(file.path)))
     .pipe(pug({
       basedir: 'src',

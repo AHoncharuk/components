@@ -1,13 +1,26 @@
-import { browserSync, dirs, getComponentsFiles, port, reload, lists } from './utils/utils'
+import { browserSync, dirs, getComponentsFiles, port, lists } from './utils/utils'
 import gulp from 'gulp'
 import pjson from '../package.json'
+import debuga from 'debuga'
+
+const { PORT, OPEN, NODE_ENV, TUNNEL } = process.env
 
 // Локальный сервер, слежение
 gulp.task('serve', ['build'], () => {
   browserSync.init({
-    server: dirs.buildPath,
-    port:3000,
-    open: true,
+    files: `${dirs.buildPath}/**/*`,
+    port: PORT || 3000,
+    open: !!OPEN,
+    reloadOnRestart: true,
+    server: {
+      baseDir: [
+        dirs.buildPath,
+        'src'
+      ],
+      directory: false,
+      middleware: NODE_ENV !== 'production' ? [debuga()] : []
+    },
+    tunnel: !!TUNNEL,
     startPath: 'index.html'
   })
   gulp.watch([
@@ -38,11 +51,12 @@ gulp.task('serve', ['build'], () => {
 //слежение за js
 gulp.start('scripts:watch');
 
+console.log('blocks', dirs.srcPath, dirs.blocksDirName);
 //слежение за pug
   gulp.watch([
-    `${dirs.blocksDirName}/**/*.pug`,
-    `*.pug`
-  ], {cwd: dirs.srcPath}, ['watch:pug'])
+    `**/**/*.pug`,
+    `**/*.pug`
+  ], {cwd: dirs.srcPath }, ['watch:pug'])
 
 
   // Слежение за SVG (спрайты)
@@ -69,3 +83,8 @@ gulp.task('watch:sprite:png', ['sprite:png'], reload);
 
 // Задача по умолчанию
 gulp.task('default', ['serve']);
+
+function reload(done) {
+  browserSync.reload()
+  done()
+}

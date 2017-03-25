@@ -98,7 +98,7 @@
 }
 
 .btn--success {
-  @include button-color($white, $color-success);
+  @include button-color($white, blue);
 
   &--hover,
   &:hover {

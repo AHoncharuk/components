@@ -86,6 +86,7 @@
     "browser-sync": "^2.11.1",
     "cross-env": "^1.0.7",
     "css-mqpacker": "^4.0.0",
+    "debuga": "^1.0.2",
     "del": "^2.2.0",
     "eslint": "^3.16.1",
     "eslint-loader": "^1.6.3",
