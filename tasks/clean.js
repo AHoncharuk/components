@@ -6,7 +6,7 @@ import gulp from 'gulp'
 gulp.task('clean', () => {
   console.log('---------- Очистка папки сборки')
   return del([
-    `${dirs.build}/**/*`,
-    `!${dirs.build}/readme.md`
+    `${dirs.buildPath}/**/*`,
+    `!${dirs.buildPath}/readme.md`
   ])
 })

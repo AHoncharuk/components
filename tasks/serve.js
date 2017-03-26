@@ -1,4 +1,4 @@
-import { browserSync, dirs, getComponentsFiles, port, lists } from './utils/utils'
+import { browserSync, dirs, port, lists } from './utils/utils'
 import gulp from 'gulp'
 import pjson from '../package.json'
 import debuga from 'debuga'
@@ -37,9 +37,12 @@ gulp.task('serve', ['build'], () => {
     gulp.watch(pjson.configProject.copiedCss, ['copy:css']);
   }
 
+console.log('img', lists.img.length)
   // Слежение за изображениями
    if(lists.img.length) {
      gulp.watch(lists.img, ['watch:img']);
+    //  gulp.watch(lists.img, {cwd: dirs.srcPath}, ['watch:img']);
+
    }
    // Слежение за добавочными JS
    if(pjson.configProject.copiedJs.length) {
