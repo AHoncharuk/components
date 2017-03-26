@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Start a library of blocks and technical solutions for HTML/CSS/js page layout.",
   "scripts": {
-    "bdd": "node -r babel-register ./node_modules/.bin/karma start karma.config.js",
-    "test-js": "eslint \"src/**/*.js\"",
-    "test-scss": "stylelint \"src/**/*.scss\"",
+    "test:bdd": "node -r babel-register ./node_modules/.bin/karma start karma.config.js",
+    "test:js": "eslint \"src/**/*.js\"",
+    "test:scss": "stylelint \"src/**/*.scss\"",
+    "test:orpho": "yaspeller -e \".pug\" ./src/",
     "start": "gulp",
     "deploy": "cross-env NODE_ENV=production ./node_modules/.bin/gulp build && cross-env ./node_modules/.bin/gulp deploy",
     "build": "cross-env NODE_ENV=production npm start build",
@@ -53,9 +54,7 @@
       "./src/scss/print.scss"
     ],
     "singleCompiled": [],
-    "addJsBefore": [
-
-    ],
+    "addJsBefore": [],
     "addJsAfter": [
       "./src/js/script.js"
     ],
@@ -147,7 +146,8 @@
     "stylelint-no-browser-hacks": "^1.0.2",
     "tether": "^1.4.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-named": "^1.1.0"
+    "vinyl-named": "^1.1.0",
+    "yaspeller": "^3.1.0"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.22.0",
