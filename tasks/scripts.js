@@ -5,14 +5,14 @@ import makeWebpackConfig from '../webpack.config.js'
 import plumber from 'gulp-plumber'
 import statsLogger from 'webpack-stats-logger'
 import webpack from 'webpack'
+import fs from 'fs'
 
-// Запишем стилевой файл диспетчер подключений
+// Запишем файл js скриптов диспетчер подключений
 let jsImports = '/**\n * ВНИМАНИЕ! Этот файл генерируется автоматически.\n * Не пишите сюда ничего вручную, все такие правки будут потеряны.\n * Читайте ./README.md для понимания.\n */\n\n';
 lists.js.forEach(function(blockPath) {
-  console.log(blockPath, fileExistAndHasContent(blockPath))
-  // styleImports += '@import \''+blockPath+'\';\n';
+  jsImports += blockPath;
 });
-// fs.writeFileSync(dirs.srcPath + 'scss/style.scss', styleImports);
+fs.writeFileSync(dirs.srcPath + 'js/script.js', jsImports);
 
 
 // const webpack = webpackStream.webpack

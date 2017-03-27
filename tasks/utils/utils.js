@@ -35,15 +35,30 @@ function getFilesList(config) {
 
   // JS
   for (let blockName in config.blocks) {
-    res.js.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + '.js');
-    if(config.blocks[blockName].length) {
-      config.blocks[blockName].forEach(function(elementName) {
-        res.js.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + elementName + '.js');
-      });
+    const fullDir = config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + '.js';
+    const formatedName = blockName.split('-')
+    let formated;
+
+    for(let i = 1; i <= formatedName.length; i++) {
+      if(!formatedName[i]) continue
+      console.log(formatedName[i])
+      formated = formatedName[i][0].toUpperCase() + formatedName[i].substring(1)
     }
+
+    console.log('fn', formatedName[0] + formated)
+
+     if(fileExistAndHasContent(fullDir)) {
+       res.js.push('import ' +blockName+ ' from \'../'+ blockName +'/'+ blockName +'\';\n');
+     }
+
+    // if(config.blocks[blockName].length) {
+    //   config.blocks[blockName].forEach(function(elementName) {
+    //     res.js.push('import ' +blockName+ ' from \'../'+ blockName +'/'+ blockName +elementName+'\';\n');
+    //   });
+    // }
   }
-  res.js = res.js.concat(config.addJsAfter);
-  res.js = config.addJsBefore.concat(res.js);
+  // res.js = res.js.concat(config.addJsAfter);
+  // res.js = config.addJsBefore.concat(res.js);
 
   // Images
   for (let blockName in config.blocks) {
