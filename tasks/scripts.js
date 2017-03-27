@@ -1,10 +1,19 @@
-import { dirs, getComponentsFiles, isDev, lists } from './utils/utils'
+import { dirs, getComponentsFiles, isDev, lists, fileExistAndHasContent } from './utils/utils'
 import errorHandler from 'gulp-plumber-error-handler'
 import gulp from 'gulp'
 import makeWebpackConfig from '../webpack.config.js'
 import plumber from 'gulp-plumber'
 import statsLogger from 'webpack-stats-logger'
 import webpack from 'webpack'
+
+// Запишем стилевой файл диспетчер подключений
+let jsImports = '/**\n * ВНИМАНИЕ! Этот файл генерируется автоматически.\n * Не пишите сюда ничего вручную, все такие правки будут потеряны.\n * Читайте ./README.md для понимания.\n */\n\n';
+lists.js.forEach(function(blockPath) {
+  console.log(blockPath, fileExistAndHasContent(blockPath))
+  // styleImports += '@import \''+blockPath+'\';\n';
+});
+// fs.writeFileSync(dirs.srcPath + 'scss/style.scss', styleImports);
+
 
 // const webpack = webpackStream.webpack
 const { NOTIFY } = process.env
