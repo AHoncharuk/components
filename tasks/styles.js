@@ -16,7 +16,7 @@ import wait from 'gulp-wait'
 const atImport = require("postcss-import")
 const inlineSVG = require('postcss-inline-svg')
 import plumber from 'gulp-plumber'
-import pjson from '../package.json'
+import projectConfig from '../project.config.json'
 
 // Запишем стилевой файл диспетчер подключений
 let styleImports = '/**\n * ВНИМАНИЕ! Этот файл генерируется автоматически.\n * Не пишите сюда ничего вручную, все такие правки будут потеряны.\n * Читайте ./README.md для понимания.\n */\n\n';
@@ -78,12 +78,12 @@ gulp.task('style', () => {
 })
 
 gulp.task('style:single', function () {
-  if(pjson.configProject.singleCompiled.length) {
+  if(projectConfig.singleCompiled.length) {
     const sass = require('gulp-sass');
     const sourcemaps = require('gulp-sourcemaps');
     const wait = require('gulp-wait');
     console.log('---------- Компиляция добавочных стилей');
-    return gulp.src(pjson.configProject.singleCompiled)
+    return gulp.src(projectConfig.singleCompiled)
       .pipe(plumber({
         errorHandler: function(err) {
           notify.onError({
@@ -112,8 +112,8 @@ gulp.task('style:single', function () {
 
 // Копирование добавочных CSS, которые хочется иметь отдельными файлами
 gulp.task('copy:css', function(callback) {
-  if(pjson.configProject.copiedCss.length) {
-    return gulp.src(pjson.configProject.copiedCss)
+  if(projectConfig.copiedCss.length) {
+    return gulp.src(projectConfig.copiedCss)
       .pipe(postcss(postCssPlugins))
       .pipe(cleanss())
       .pipe(size({

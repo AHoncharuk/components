@@ -1,11 +1,11 @@
 // Получение настроек папок из package.json
 import browserSyncPl from 'browser-sync'
 import fs from 'fs'
-import pjson from '../../package.json'
+import projectConfig from '../../project.config.json'
 
 export const browserSync = browserSyncPl.create()
-export const dirs = pjson.configProject.dirs
-export const lists = getFilesList(pjson.configProject)
+export const dirs = projectConfig.dirs
+export const lists = getFilesList(projectConfig)
 
 
 // Запуск `port=3004 npm start` приведет к запуску сервера обновлений на 3004 порту и всей обычной автоматизации

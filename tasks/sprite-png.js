@@ -7,13 +7,13 @@ const buffer = require('vinyl-buffer');
 const merge = require('merge-stream');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
-import pjson from '../package.json'
+import projectConfig from '../project.config.json'
 import del from 'del'
 
 // Сборка SVG-спрайта для блока sprite-png
 let spritePngPath = dirs.srcPath + dirs.blocksDirName + '/sprite-png/png/';
 gulp.task('sprite:png', function (callback) {
-  if((pjson.configProject.blocks['sprite-png']) !== undefined) {
+  if((projectConfig.blocks['sprite-png']) !== undefined) {
     if(fileExist(spritePngPath) !== false) {
       del(dirs.srcPath + dirs.blocksDirName + '/sprite-png/img/*.png');
       let fileName = 'sprite-' + Math.random().toString().replace(/[^0-9]/g, '') + '.png';

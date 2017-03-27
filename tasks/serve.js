@@ -1,6 +1,6 @@
 import { browserSync, dirs, port, lists } from './utils/utils'
 import gulp from 'gulp'
-import pjson from '../package.json'
+import projectConfig from '../project.config.json'
 import debuga from 'debuga'
 
 const { PORT, OPEN, NODE_ENV, TUNNEL } = process.env
@@ -26,15 +26,15 @@ gulp.task('serve', ['build'], () => {
   gulp.watch([
       dirs.srcPath + 'scss/style.scss',
       dirs.srcPath + dirs.blocksDirName + '/**/*.scss',
-      pjson.configProject.addCssBefore,
-      pjson.configProject.addCssAfter
+      projectConfig.addCssBefore,
+      projectConfig.addCssAfter
     ], ['style'])
 
 // Слежение за отдельными стилями
-  gulp.watch(pjson.configProject.singleCompiled, ['style:single']);
+  gulp.watch(projectConfig.singleCompiled, ['style:single']);
   // Слежение за добавочными стилями
-  if(pjson.configProject.copiedCss.length) {
-    gulp.watch(pjson.configProject.copiedCss, ['copy:css']);
+  if(projectConfig.copiedCss.length) {
+    gulp.watch(projectConfig.copiedCss, ['copy:css']);
   }
 
 console.log('img', lists.img.length)
@@ -45,8 +45,8 @@ console.log('img', lists.img.length)
 
    }
    // Слежение за добавочными JS
-   if(pjson.configProject.copiedJs.length) {
-     gulp.watch(pjson.configProject.copiedJs, ['watch:copied:js']);
+   if(projectConfig.copiedJs.length) {
+     gulp.watch(projectConfig.copiedJs, ['watch:copied:js']);
    }
    // Слежение за шрифтами
    gulp.watch('/fonts/*.{ttf,woff,woff2,eot,svg}', {cwd: dirs.srcPath}, ['watch:fonts']);
@@ -64,12 +64,12 @@ console.log('blocks', dirs.srcPath, dirs.blocksDirName);
 
   // Слежение за SVG (спрайты)
   let spriteSvgPath = dirs.srcPath + dirs.blocksDirName + '/sprite-svg/svg/';
-  if((pjson.configProject.blocks['sprite-svg']) !== undefined) {
+  if((projectConfig.blocks['sprite-svg']) !== undefined) {
     gulp.watch('*.svg', {cwd: spriteSvgPath}, ['watch:sprite:svg']); // следит за новыми и удаляемыми файлами
   }
   // Слежение за PNG (спрайты)
   let spritePngPath = dirs.srcPath + dirs.blocksDirName + '/sprite-png/png/';
-  if((pjson.configProject.blocks['sprite-png']) !== undefined) {
+  if((projectConfig.blocks['sprite-png']) !== undefined) {
     gulp.watch('*.png', {cwd: spritePngPath}, ['watch:sprite:png']); // следит за новыми и удаляемыми файлами
   }
 

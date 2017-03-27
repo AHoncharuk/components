@@ -5,12 +5,12 @@ import rename from 'gulp-rename'
 import size from 'gulp-size'
 import svgmin from 'gulp-svgmin'
 import svgstore from 'gulp-svgstore'
-import pjson from '../package.json'
+import projectConfig from '../project.config.json'
 
 // Сборка SVG-спрайта для блока sprite-svg
 let spriteSvgPath = dirs.srcPath + dirs.blocksDirName + '/sprite-svg/svg/';
 gulp.task('sprite:svg', function (callback) {
-  if((pjson.configProject.blocks['sprite-svg']) !== undefined) {
+  if((projectConfig.blocks['sprite-svg']) !== undefined) {
     if(fileExist(spriteSvgPath) !== false) {
       console.log('---------- Сборка SVG спрайта');
       return gulp.src(spriteSvgPath + '*.svg')

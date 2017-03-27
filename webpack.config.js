@@ -44,7 +44,18 @@ export default function makeWebpackConfig({
 			modulesDirectories: [
 				'node_modules'
 			],
-			extensions: ['.js', '']
+			extensions: ['.js', ''],
+      root: path.resolve(__dirname),
+      alias: {
+        TweenMax: 'node_modules/gsap/src/uncompressed/TweenMax.js',
+        TweenLite: 'node_modules/gsap/src/uncompressed/TweenLite.js',
+        TimelineLite: 'node_modules/gsap/src/uncompressed/TimelineLite.js',
+        TimelineMax: 'node_modules/gsap/src/uncompressed/TimelineMax.js',
+        EasePack: 'node_modules/gsap/src/uncompressed/easing/EasePack.js',
+        CSSPlugin: 'node_modules/gsap/src/uncompressed/plugins/CSSPlugin.js',
+        Draggable: 'node_modules/gsap/src/uncompressed/utils/Draggable.js',
+        isMobile: 'node_modules/ismobilejs/isMobile.min.js'
+      }
 		},
 		module: {
 			preLoaders: [{

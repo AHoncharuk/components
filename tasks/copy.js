@@ -8,7 +8,7 @@ import size from 'gulp-size'
 const atImport = require("postcss-import")
 const inlineSVG = require('postcss-inline-svg')
 import newer from 'gulp-newer'
-import pjson from '../package.json'
+import projectConfig from '../project.config.json'
 
 // Плагины postCSS, которыми обрабатываются все стилевые файлы
 let postCssPlugins = [
@@ -24,8 +24,8 @@ let postCssPlugins = [
 
 // Копирование добавочных CSS, которые хочется иметь отдельными файлами
 gulp.task('copy:css', function(callback) {
-  if(pjson.configProject.copiedCss.length) {
-    return gulp.src(pjson.configProject.copiedCss)
+  if(projectConfig.copiedCss.length) {
+    return gulp.src(projectConfig.copiedCss)
       .pipe(postcss(postCssPlugins))
       .pipe(cleanss())
       .pipe(size({
@@ -56,8 +56,8 @@ gulp.task('copy:img', function () {
 
 // Копирование JS
 gulp.task('copy:js', function (callback) {
-  if(pjson.configProject.copiedJs.length) {
-    return gulp.src(pjson.configProject.copiedJs)
+  if(projectConfig.copiedJs.length) {
+    return gulp.src(projectConfig.copiedJs)
       .pipe(size({
         title: 'Размер',
         showFiles: true,
