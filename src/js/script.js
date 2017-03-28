@@ -4,16 +4,15 @@
  * Читайте ./README.md для понимания.
  */
 
-import sprite-svg from '../sprite-svg/sprite-svg';
-import alert from '../alert/alert';
-import field-text from '../field-text/field-text';
-import field-checkbox from '../field-checkbox/field-checkbox';
-import field-radio from '../field-radio/field-radio';
-import field-toggler from '../field-toggler/field-toggler';
-import field-file from '../field-file/field-file';
-import field-range from '../field-range/field-range';
-import field-select from '../field-select/field-select';
-import field-date from '../field-date/field-date';
-import form from '../form/form';
-import dropdown from '../dropdown/dropdown';
-import tooltip from '../tooltip/tooltip';
+import alert from '../blocks/alert/alert';
+import fieldText from '../blocks/field-text/field-text';
+import fieldCheckbox from '../blocks/field-checkbox/field-checkbox';
+import fieldRadio from '../blocks/field-radio/field-radio';
+import fieldToggler from '../blocks/field-toggler/field-toggler';
+import fieldFile from '../blocks/field-file/field-file';
+import fieldRange from '../blocks/field-range/field-range';
+import fieldSelect from '../blocks/field-select/field-select';
+import fieldDate from '../blocks/field-date/field-date';
+import form from '../blocks/form/form';
+import dropdown from '../blocks/dropdown/dropdown';
+import tooltip from '../blocks/tooltip/tooltip';
