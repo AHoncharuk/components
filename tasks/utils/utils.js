@@ -64,6 +64,7 @@ function getFilesList(config) {
 
   return res
 }
+
 // Проверка существования файла и его размера (размер менее 2байт == файла нет)
 export function fileExistAndHasContent(path) {
   try {

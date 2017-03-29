@@ -6,6 +6,6 @@ import gulp from 'gulp'
 gulp.task('deploy', () => {
   console.log('---------- Публикация ./build/ на GH pages')
   // console.log('---------- '+ ghPagesUrl);
-  return gulp.src(dirs.buildPath + '**/*')
+  return gulp.src(`${dirs.buildPath}**/*`)
     .pipe(ghPages())
 })
