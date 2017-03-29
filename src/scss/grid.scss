@@ -20,10 +20,8 @@
 
 @import "variables";
 
-//
-// Grid mixins
-//
 
+// Grid mixins
 @import "mixins/breakpoints.scss";
 @import "grid/grid-framework.scss";
 @import "grid/grid-system.scss";

@@ -15,23 +15,23 @@ export const isDev = !process.env.NODE_ENV || process.env.NODE_ENV === 'dev'
 
 function getFilesList(config) {
 
-  let res = {
-    'css': [],
-    'js': [],
-    'img': []
-  };
+  const res = {
+    css: [],
+    js: [],
+    img: []
+  }
 
   // Style
   for (let blockName in config.blocks) {
-    res.css.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + '.scss');
-    if(config.blocks[blockName].length) {
-      config.blocks[blockName].forEach(function(elementName) {
-        res.css.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + elementName + '.scss');
-      });
+    res.css.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + '.scss')
+    if (config.blocks[blockName].length) {
+      config.blocks[blockName].forEach((elementName) => {
+        res.css.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/' + blockName + elementName + '.scss')
+      })
     }
   }
-  res.css = res.css.concat(config.addCssAfter);
-  res.css = config.addCssBefore.concat(res.css);
+  res.css = res.css.concat(config.addCssAfter)
+  res.css = config.addCssBefore.concat(res.css)
 
   // JS
   for (let blockName in config.blocks) {
@@ -40,15 +40,15 @@ function getFilesList(config) {
     let UpperNamePart
     let formatedName
 
-    for(let i = 1; i <= complexName.length; i++) {
+    for (let i = 1; i <= complexName.length; i++) {
 
-      if(!complexName[i]) continue
+      if (!complexName[i]) continue
       UpperNamePart = complexName[i][0].toUpperCase() + complexName[i].substring(1)
       formatedName = complexName[0] + UpperNamePart
     }
 
-    if(fileExistAndHasContent(fullDir)) {
-      if(UpperNamePart) {
+    if (fileExistAndHasContent(fullDir)) {
+      if (UpperNamePart) {
         res.js.push('import ' +formatedName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\';\n')
       } else {
         res.js.push('import ' +blockName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\';\n')
@@ -58,11 +58,11 @@ function getFilesList(config) {
 
   // Images
   for (let blockName in config.blocks) {
-    res.img.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/img/*.{jpg,jpeg,gif,png,svg}');
+    res.img.push(config.dirs.srcPath + config.dirs.blocksDirName + '/' + blockName + '/img/*.{jpg,jpeg,gif,png,svg}')
   }
-  res.img = config.addImages.concat(res.img);
+  res.img = config.addImages.concat(res.img)
 
-  return res;
+  return res
 }
 // Проверка существования файла и его размера (размер менее 2байт == файла нет)
 export function fileExistAndHasContent(path) {

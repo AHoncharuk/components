@@ -85,6 +85,7 @@
     "mocha": "^3.2.0",
     "node-notifier": "^5.0.2",
     "npm-install-webpack-plugin": "^4.0.4",
+    "parsleyjs": "^2.7.0",
     "phantomjs-prebuilt": "^2.1.14",
     "pikaday": "^1.5.1",
     "postcss-import": "^9.1.0",

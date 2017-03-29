@@ -27,7 +27,9 @@
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
-    "./src/scss/mixins.scss"
+    "./src/scss/mixins.scss",
+    "./src/scss/grid.scss",
+    "./src/scss/plugins.scss"
   ],
   "addCssAfter": [
     "./src/scss/print.scss"
