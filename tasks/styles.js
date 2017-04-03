@@ -11,7 +11,7 @@ import postcss from 'gulp-postcss'
 import rename from 'gulp-rename'
 import sass from 'gulp-sass'
 import size from 'gulp-size'
-import sourcemaps from 'gulp-sourcemaps'
+// import sourcemaps from 'gulp-sourcemaps'
 import wait from 'gulp-wait'
 import atImport from 'postcss-import'
 import inlineSVG from 'postcss-inline-svg'
@@ -53,7 +53,7 @@ gulp.task('style', () => {
      }
    }))
     .pipe(wait(100))
-    .pipe(gulpIf(isDev, sourcemaps.init()))
+    // .pipe(gulpIf(isDev, sourcemaps.init()))
     .pipe(debug({
       title: 'SCSS:'
     }))
@@ -64,7 +64,7 @@ gulp.task('style', () => {
     .pipe(debug({
       title: 'RENAME:'
     }))
-    .pipe(gulpIf(isDev, sourcemaps.write('/')))
+    // .pipe(gulpIf(isDev, sourcemaps.write('/')))
     .pipe(size({
       title: 'Размер',
       showFiles: true,
@@ -90,14 +90,14 @@ gulp.task('style:single', () => {
         }
       }))
       .pipe(wait(100))
-      .pipe(gulpIf(isDev, sourcemaps.init()))
+      // .pipe(gulpIf(isDev, sourcemaps.init()))
       .pipe(debug({
         title: 'Single style:'
       }))
       .pipe(sass())
       .pipe(postcss(postCssPlugins))
       .pipe(gulpIf(!isDev, cleanss()))
-      .pipe(gulpIf(isDev, sourcemaps.write('/')))
+      // .pipe(gulpIf(isDev, sourcemaps.write('/')))
       .pipe(size({
         title: 'Размер',
         showFiles: true,

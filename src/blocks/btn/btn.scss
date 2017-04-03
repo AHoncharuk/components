@@ -18,7 +18,7 @@
   text-decoration: none;
   text-transform: none;
   white-space: nowrap;
-  @include button-color($text-color, red, $gray-light);
+  @include button-color($text-color, blue, $gray-light);
   @include border-radius($border-radius);
   background-image: none;
   user-select: none;
@@ -98,7 +98,7 @@
 }
 
 .btn--success {
-  @include button-color($white, $color-success);
+  @include button-color($white, pink);
 
   &--hover,
   &:hover {

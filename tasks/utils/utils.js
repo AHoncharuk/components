@@ -49,9 +49,9 @@ function getFilesList(config) {
 
     if (fileExistAndHasContent(fullDir)) {
       if (UpperNamePart) {
-        res.js.push('import ' +formatedName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\';\n')
+        res.js.push('import ' +formatedName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\'\n')
       } else {
-        res.js.push('import ' +blockName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\';\n')
+        res.js.push('import ' +blockName+ ' from \'../blocks/'+ blockName +'/'+ blockName +'\'\n')
       }
     }
   }
