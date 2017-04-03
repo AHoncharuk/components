@@ -1,0 +1,12 @@
+include ../menu/menu
+include ../burger/burger
+
+mixin off-canvas()
+  +b(class='off-canvas' id='off-canvas')&attributes(attributes)
+    +e('aside')(class='aside' role='complementary' aria-label='')
+      +menu
+    +e('main')(class='page-content')
+      .header
+        +burger
+    +e(class='overlay')(data-toggle='off-canvas')
+    

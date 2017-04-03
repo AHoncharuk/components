@@ -1,53 +1,10 @@
 extends /blocks/layout/layout
 
-include /blocks/btn-group/btn-group
-include /blocks/btn/btn
-include /blocks/field-checkbox/field-checkbox
-include /blocks/checkbox-group/checkbox-group
-include /blocks/field-radio/field-radio
-include /blocks/radio-group/radio-group
-include /blocks/field-select/field-select
-include /blocks/field-file/field-file
-include /blocks/field-text/field-text
-include /blocks/field-range/field-range
-include /blocks/field-toggler/field-toggler
-include /blocks/field-actions/field-actions
-include /blocks/field-date/field-date
-include /blocks/form/form
-include /blocks/alert/alert
+include /blocks/off-canvas/off-canvas
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  +form()(data-parsley-validate='')
-    +field-text(
-      { type: 'text', placeholder: 'укажите имя', name: 'help me' },
-      { trigger: 'change', type: 'digits' }) Введите имя
-    +field-text(
-      { type: 'email', placeholder: 'укажите email', name: 'email' },
-      { trigger: 'change', type: 'email' }) Введите email
-    +field-text(
-      { type: 'number', placeholder: 'укажите  цифры', name: 'numbers' },
-      { trigger: 'change', type: 'digits', required: 'required' }) Введите  цифры
-    +field-select(
-      { name: 'Машины', options: { 'Русские': { 'lada': 'Лада', 'volga': { name: 'Волга', selected: 'selected'}, 'moscvich': 'Москвич' }, 'Japanese': { 'toyota': 'Toyota', 'suzuki': 'Suzuki', 'nissan': 'Nissan' }}},{ required: 'required' })
-    +field-checkbox({ name: 'Hello' }, { required: 'required', mincheck: 3 }) Nekki
-    +field-radio({ name: 'yes' }, { required: 'required' }) Vikki
-    +field-radio({ name: 'yes' }, { required: 'required'}) Nekki
-    +field-file({ name: 'Выберете фото', help: 'sdfsdsdfsdfsd' }, { maxsize: '50', required: 'required' })
-    +field-date({ id: 'date', name: 'Начальная дата' }, { required: 'required' })
-    +field-actions()
-      +btn('submit')(class='btn--success') Отправить
-      //- +btn('button') Отмена
-  .msg.msg-warning.hidden invalid
-  .msg.msg-info.hidden warning
-  .container
-    .row
-      .col-8
-        button(class='btn btn--success') top nekki 
-      .col-4 2
-        +alert('', true)(class='alert--success') lorem100
-    //- .row
-    //-   .col-lg-6 3
-    //-   .col-lg-6 6
+  +off-canvas()
+  

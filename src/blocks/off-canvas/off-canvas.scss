@@ -1,0 +1,90 @@
+$gray-darkest:                hsl(0, 0%, 10%);
+
+$opacity:                     0.7 !default;
+$transition-time:             0.3s !default;
+
+$toggler-part-height:         3px !default;
+
+// Переменная ширины этого блока
+//
+$off-canvas-width:            250px !default;
+
+.off-canvas {
+
+  $block-name:  &;
+  position: relative;
+  overflow: hidden;
+
+  &__aside {
+    max-height: 30vh;
+    overflow-y: auto;
+    backface-visibility: hidden;
+    background-color: $gray-darkest;
+    color: #fff;
+    transition: transform $transition-time ease;
+
+    .js & {
+      position: fixed;
+      z-index: 2;
+      width: $off-canvas-width;
+      height: 100%;
+      max-height: none;
+      transform: translateX(($off-canvas-width * -1));
+    }
+
+    a {
+      color: #fff;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+      }
+    }
+  }
+
+  &__page-content {
+    backface-visibility: hidden;
+    transition: transform $transition-time ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .js &--open {
+
+    #{$block-name}__overlay {
+      position: fixed;
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity $transition-time ease;
+    }
+
+    #{$block-name}__close {
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #{$block-name}__aside {
+      transform: translateX(0);
+    }
+
+    #{$block-name}__page-content {
+      transform: translateX($off-canvas-width);
+    }
+
+    .burger {
+      opacity: 0;
+    }
+  }
+}

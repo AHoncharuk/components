@@ -23,7 +23,10 @@
     "form": [],
     "dropdown": [],
     "label": [],
-    "tooltip": []
+    "tooltip": [],
+    "off-canvas": [],
+    "burger": [],
+    "menu": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
