@@ -1,3 +1,8 @@
 mixin dropdown()
-  +b.dropdown&attributes(attributes)
-    block
+  .dropdown
+    button#dropdownMenuButton.btn--success.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+      | Dropdown button
+    .dropdown-menu(aria-labelledby='dropdownMenuButton')
+      a.dropdown-item(href='#') Action
+      a.dropdown-item(href='#') Another action
+      a.dropdown-item(href='#') Something else here

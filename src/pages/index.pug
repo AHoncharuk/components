@@ -3,11 +3,13 @@ extends /blocks/layout/layout
 include /blocks/off-canvas/off-canvas
 include /blocks/btn/btn
 include /blocks/tab/tab
+include /blocks/dropdown/dropdown
 
 block head
   - var pageTitle = 'Components';
 
 block content
+  +dropdown()
   //- +off-canvas()
-  +btn('button') Hello
-  +tab()
+  //- +btn('button') Hello
+  //- +tab()

@@ -7,6 +7,7 @@ $gray-light:                  #b1b1b1;
 $gray-lighter:                #eceeef;
 $gray-lightest:               #f7f7f9;
 $white:                       #ffffff;
+$black:                       #000000;
 
 $color-main:                  #0275d8;
 $color-success:               #5cb85c;
@@ -15,6 +16,7 @@ $color-danger:                #d9534f;
 
 // Семантические цвета
 $text-color:                  $gray-darkest;
+$body-color:    $gray-dark !default;
 $text-color--muted:           $gray;
 $body-bg:                     $white;
 $link-color:                  $color-main;
@@ -104,6 +106,7 @@ $font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubun
 $font-family--serif:          'Georgia', 'Times New Roman', 'Times', serif;
 $font-family--monospace:      'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 $font-family--headings:       $font-family;
+$font-weight-normal: 400 !default;
 
 
 // Формы, кнопки
@@ -119,7 +122,16 @@ $transition-fade:           opacity 0.15s linear !default;
 
 // Разное
 $enable-rounded: true;
+$enable-hover-media-query:  false !default;
+$enable-gradients:          false !default;
+$border-width: 1px !default;
+$spacer: 1rem !default;
 $border-radius:               0.3rem;
 $opacity:                     0.7;
 $transition-time:             0.3s;
 $shadow:                      0 4px 2px -2px rgba(0, 0, 0, 0.3);
+
+$component-active-color: $white !default;
+$component-active-bg:    $gray !default;
+
+$cursor-disabled:                not-allowed !default;
