@@ -26,7 +26,9 @@
     "tooltip": [],
     "off-canvas": [],
     "burger": [],
-    "menu": []
+    "menu": [],
+    "tooltip": [],
+    "tab": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

@@ -1,10 +1,13 @@
 extends /blocks/layout/layout
 
 include /blocks/off-canvas/off-canvas
+include /blocks/btn/btn
+include /blocks/tab/tab
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  +off-canvas()
-  
+  //- +off-canvas()
+  +btn('button') Hello
+  +tab()

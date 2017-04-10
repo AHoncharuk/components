@@ -1,3 +1,16 @@
 mixin tab()
-  +b.tab&attributes(attributes)
-    block
+  ul.nav.nav-tabs(role='tablist')
+    li.active(role='presentation')
+      a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
+    li(role='presentation')
+      a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
+    li(role='presentation')
+      a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
+    li(role='presentation')
+      a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings
+  // Tab panes
+  .tab-content
+    #home.tab-pane.fade.active(role='tabpanel') 1111111
+    #profile.tab-pane.fade(role='tabpanel') 2222222
+    #messages.tab-pane.fade(role='tabpanel') 3333333
+    #settings.tab-pane.fade(role='tabpanel') 4444444
