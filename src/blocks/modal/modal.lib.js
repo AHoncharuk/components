@@ -1,4 +1,4 @@
-import Util from './util'
+import Util from '../../js/utils/util'
 
 
 /**
@@ -56,15 +56,17 @@ const Modal = (($) => {
   }
 
   const ClassName = {
-    SCROLLBAR_MEASURER : 'modal-scrollbar-measure',
-    BACKDROP           : 'modal-backdrop',
-    OPEN               : 'modal-open',
-    FADE               : 'fade',
-    SHOW               : 'show'
+    SCROLLBAR_MEASURER : 'modal__scrollbar-measure',
+    BACKDROP           : 'modal__backdrop',
+    OPEN               : 'modal--open',
+    MODAL_FADE         : 'modal--fade',
+    MODAL_SHOW         : 'modal--show',
+    BACKDROP_FADE      : 'modal__backdrop--fade',
+    BACKDROP_SHOW      : 'modal__backdrop--show'
   }
 
   const Selector = {
-    DIALOG             : '.modal-dialog',
+    DIALOG             : '.modal__dialog',
     DATA_TOGGLE        : '[data-toggle="modal"]',
     DATA_DISMISS       : '[data-dismiss="modal"]',
     FIXED_CONTENT      : '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top'
@@ -116,7 +118,7 @@ const Modal = (($) => {
       }
 
       if (Util.supportsTransitionEnd() &&
-        $(this._element).hasClass(ClassName.FADE)) {
+        $(this._element).hasClass(ClassName.MODAL_FADE)) {
         this._isTransitioning = true
       }
       const showEvent = $.Event(Event.SHOW, {
@@ -134,7 +136,7 @@ const Modal = (($) => {
       this._checkScrollbar()
       this._setScrollbar()
 
-      $(document.body).addClass(ClassName.OPEN)
+      $(this._element).addClass(ClassName.OPEN)
 
       this._setEscapeEvent()
       this._setResizeEvent()
@@ -166,7 +168,7 @@ const Modal = (($) => {
       }
 
       const transition = Util.supportsTransitionEnd() &&
-        $(this._element).hasClass(ClassName.FADE)
+        $(this._element).hasClass(ClassName.MODAL_FADE)
       if (transition) {
         this._isTransitioning = true
       }
@@ -185,7 +187,7 @@ const Modal = (($) => {
 
       $(document).off(Event.FOCUSIN)
 
-      $(this._element).removeClass(ClassName.SHOW)
+      $(this._element).removeClass(ClassName.MODAL_SHOW)
 
       $(this._element).off(Event.CLICK_DISMISS)
       $(this._dialog).off(Event.MOUSEDOWN_DISMISS)
@@ -226,7 +228,7 @@ const Modal = (($) => {
 
     _showElement(relatedTarget) {
       const transition = Util.supportsTransitionEnd() &&
-        $(this._element).hasClass(ClassName.FADE)
+        $(this._element).hasClass(ClassName.MODAL_FADE)
 
       if (!this._element.parentNode ||
          this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
@@ -242,7 +244,7 @@ const Modal = (($) => {
         Util.reflow(this._element)
       }
 
-      $(this._element).addClass(ClassName.SHOW)
+      $(this._element).addClass(ClassName.MODAL_SHOW)
 
       if (this._config.focus) {
         this._enforceFocus()
@@ -307,7 +309,7 @@ const Modal = (($) => {
       this._element.setAttribute('aria-hidden', 'true')
       this._isTransitioning = false
       this._showBackdrop(() => {
-        $(document.body).removeClass(ClassName.OPEN)
+        $(this._element).removeClass(ClassName.OPEN)
         this._resetAdjustments()
         this._resetScrollbar()
         $(this._element).trigger(Event.HIDDEN)
@@ -322,8 +324,8 @@ const Modal = (($) => {
     }
 
     _showBackdrop(callback) {
-      const animate = $(this._element).hasClass(ClassName.FADE) ?
-        ClassName.FADE : ''
+      const animate = $(this._element).hasClass(ClassName.MODAL_FADE) ?
+        ClassName.BACKDROP_FADE : ''
 
       if (this._isShown && this._config.backdrop) {
         const doAnimate = Util.supportsTransitionEnd() && animate
@@ -356,7 +358,7 @@ const Modal = (($) => {
           Util.reflow(this._backdrop)
         }
 
-        $(this._backdrop).addClass(ClassName.SHOW)
+        $(this._backdrop).addClass(ClassName.BACKDROP_SHOW)
 
         if (!callback) {
           return
@@ -372,7 +374,7 @@ const Modal = (($) => {
           .emulateTransitionEnd(BACKDROP_TRANSITION_DURATION)
 
       } else if (!this._isShown && this._backdrop) {
-        $(this._backdrop).removeClass(ClassName.SHOW)
+        $(this._backdrop).removeClass(ClassName.BACKDROP_SHOW)
 
         const callbackRemove = () => {
           this._removeBackdrop()
@@ -382,7 +384,7 @@ const Modal = (($) => {
         }
 
         if (Util.supportsTransitionEnd() &&
-           $(this._element).hasClass(ClassName.FADE)) {
+           $(this._element).hasClass(ClassName.BACKDROP_FADE)) {
           $(this._backdrop)
             .one(Util.TRANSITION_END, callbackRemove)
             .emulateTransitionEnd(BACKDROP_TRANSITION_DURATION)

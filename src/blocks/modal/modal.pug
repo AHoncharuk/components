@@ -1,3 +1,13 @@
 mixin modal()
-  +b.modal&attributes(attributes)
-    block
+  +b(id='autorization' class='modal modal--fade' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')&attributes(attributes)
+    .modal__dialog(role='document')
+      .modal__content
+        .modal__header
+          h5#exampleModalLabel.modal__title Modal title
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+        .modal__body
+          | ...
+        .modal__footer
+          button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='button') Save changes
