@@ -30,13 +30,56 @@ $dropdown-item-padding-x:        1.5rem !default;
 
 $dropdown-header-color:          $gray-light !default;
 
-.dropup,
 .dropdown {
   position: relative;
+
+  &--show {
+
+    > .dropdown__menu {
+      display: block;
+    }
+
+    > a {
+      outline: 0;
+    }
+  }
+
+  &--up {
+
+    .dropdown__toggle {
+
+      &::after {
+        border-top: 0;
+        border-bottom: $caret-width solid;
+      }
+    }
+
+    .dropdown__menu {
+      top: auto;
+      bottom: 100%;
+      margin-bottom: $dropdown-margin-top;
+    }
+  }
+
+  &--right {
+
+    .dropdown__menu {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &--left {
+
+    .dropdown__menu {
+      right: auto;
+      left: 0;
+    }
+  }
 }
 
-.dropdown-toggle {
-  // Generate the caret automatically
+.dropdown__toggle {
+
   &::after {
     display: inline-block;
     width: 0;
@@ -54,17 +97,7 @@ $dropdown-header-color:          $gray-light !default;
   }
 }
 
-.dropup {
-  .dropdown-toggle {
-    &::after {
-      border-top: 0;
-      border-bottom: $caret-width solid;
-    }
-  }
-}
-
-// The dropdown menu
-.dropdown-menu {
+.dropdown__menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -85,25 +118,21 @@ $dropdown-header-color:          $gray-light !default;
   box-shadow: $dropdown-box-shadow;
 }
 
-// Dividers (basically an `<hr>`) within the dropdown
-.dropdown-divider {
+.dropdown__divider {
   @include nav-divider($dropdown-divider-bg);
 }
 
-// Links, buttons, and more within the dropdown menu
-//
-// `<button>`-specific styles are denoted with `// For <button>s`
-.dropdown-item {
+.dropdown__item {
   display: block;
-  width: 100%; // For `<button>`s
+  width: 100%;
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   clear: both;
   font-weight: $font-weight-normal;
   color: $dropdown-link-color;
-  text-align: inherit; // For `<button>`s
-  white-space: nowrap; // prevent links from randomly breaking onto new lines
-  background: none; // For `<button>`s
-  border: 0; // For `<button>`s
+  text-align: inherit;
+  white-space: nowrap;
+  background: none;
+  border: 0;
 
   @include hover-focus {
     color: $dropdown-link-hover-color;
@@ -111,81 +140,39 @@ $dropdown-header-color:          $gray-light !default;
     background-color: $dropdown-link-hover-bg;
   }
 
-  &.active,
+  &--active,
   &:active {
     color: $dropdown-link-active-color;
     text-decoration: none;
     background-color: $dropdown-link-active-bg;
   }
 
-  &.disabled,
+  &--disabled,
   &:disabled {
     color: $dropdown-link-disabled-color;
     cursor: $cursor-disabled;
     background-color: transparent;
-    // Remove CSS gradients if they're enabled
+
     @if $enable-gradients {
       background-image: none;
     }
   }
 }
 
-// Open state for the dropdown
-.show {
-  // Show the menu
-  > .dropdown-menu {
-    display: block;
-  }
-
-  // Remove the outline when :focus is triggered
-  > a {
-    outline: 0;
-  }
-}
-
-// Menu positioning
-//
-// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
-// menu with the parent.
-.dropdown-menu-right {
-  right: 0;
-  left: auto; // Reset the default from `.dropdown-menu`
-}
-
-.dropdown-menu-left {
-  right: auto;
-  left: 0;
-}
-
-// Dropdown section headers
-.dropdown-header {
+.dropdown__header {
   display: block;
   padding: $dropdown-padding-y $dropdown-item-padding-x;
-  margin-bottom: 0; // for use with heading elements
+  margin-bottom: 0;
   font-size: $font-size--small;
   color: $dropdown-header-color;
-  white-space: nowrap; // as with > li > a
+  white-space: nowrap;
 }
 
-// Backdrop to catch body clicks on mobile, etc.
-.dropdown-backdrop {
+.dropdown__backdrop {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: $zindex-dropdown-backdrop;
-}
-
-// Allow for dropdowns to go bottom up (aka, dropup-menu)
-//
-// Just add .dropup after the standard .dropdown class and you're set.
-
-.dropup {
-  // Different positioning for bottom up menu
-  .dropdown-menu {
-    top: auto;
-    bottom: 100%;
-    margin-bottom: $dropdown-margin-top;
-  }
 }

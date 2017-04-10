@@ -42,13 +42,13 @@ const Dropdown = (($) => {
   }
 
   const ClassName = {
-    BACKDROP : 'dropdown-backdrop',
-    DISABLED : 'disabled',
-    SHOW     : 'show'
+    BACKDROP : 'dropdown__backdrop',
+    DISABLED : 'menu__item--disabled',
+    SHOW     : 'dropdown--show'
   }
 
   const Selector = {
-    BACKDROP      : '.dropdown-backdrop',
+    BACKDROP      : '.dropdown__backdrop',
     DATA_TOGGLE   : '[data-toggle="dropdown"]',
     FORM_CHILD    : '.dropdown form',
     ROLE_MENU     : '[role="menu"]',
@@ -69,8 +69,6 @@ const Dropdown = (($) => {
 
     constructor(element) {
       this._element = element
-
-      console.log(element)
 
       this._addEventListeners()
     }
