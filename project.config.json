@@ -28,7 +28,8 @@
     "burger": [],
     "menu": [],
     "tooltip": [],
-    "tab": []
+    "tab": [],
+    "collapse": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

@@ -1,3 +1,1 @@
-// (function(){
-// код
-// }());
+import collapse from './collapse.lib.js'

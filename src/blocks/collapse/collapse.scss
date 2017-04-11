@@ -2,7 +2,18 @@
 
 @import '../../scss/variables.scss';     // только для удобства обращения к переменным
 
+$transition-collapse:    height .35s ease !default;
 
 .collapse {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
 
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition($transition-collapse);
 }
