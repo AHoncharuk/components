@@ -1,16 +1,16 @@
 mixin tab()
-  ul.nav.nav-tabs(role='tablist')
-    li.active(role='presentation')
-      a(href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
-    li(role='presentation')
-      a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
-    li(role='presentation')
-      a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
-    li(role='presentation')
-      a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings
-  // Tab panes
-  .tab-content
-    #home.tab-pane.fade.active(role='tabpanel') 1111111
-    #profile.tab-pane.fade(role='tabpanel') 2222222
-    #messages.tab-pane.fade(role='tabpanel') 3333333
-    #settings.tab-pane.fade(role='tabpanel') 4444444
+  +b(class='tab')&attributes(attributes)
+    +e('ul')(class='links')(role='tablist')
+      +e('li')(class='link-wrap tab__link-wrap--active' role='presentation')
+        +e('a')(class='link' href='#home', aria-controls='home', role='tab', data-toggle='tab') Home
+      +e('li')(class='link-wrap' role='presentation')
+        +e('a')(class='link' href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
+      +e('li')(class='link-wrap' role='presentation')
+        +e('a')(class='link' href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
+      +e('li')(class='link-wrap' role='presentation')
+        +e('a')(class='link' href='#settings', aria-controls='settings', role='tab', data-toggle='tab') Settings  
+    +e(class='content-wrapper')
+      +e(class='content-item tab__content-item--active' id='home' role='tabpanel') 1111111111111
+      +e(class='content-item' id='profile' role='tabpanel') 22222222222222
+      +e(class='content-item' id='messages' role='tabpanel') 1111111111111
+      +e(class='content-item' id='settings' role='tabpanel') 22222222222222

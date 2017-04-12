@@ -26,17 +26,19 @@ const Tab = (($) => {
   }
 
   const ClassName = {
-    DROPDOWN_MENU : 'dropdown-menu',
-    ACTIVE        : 'active',
-    DISABLED      : 'disabled',
-    FADE          : 'fade',
-    SHOW          : 'show'
+    DROPDOWN_MENU     : 'dropdown__menu',
+    TAB_ACTIVE        : 'tab__link-wrap--active',
+    CONTENT_ACTIVE    : 'tab__content-item--active',
+    DISABLED          : 'tab__link-wrap--disabled',
+    FADE              : 'fade',
+    SHOW              : 'show'
   }
 
   const Selector = {
     DROPDOWN              : '.dropdown',
     NAV_LIST_GROUP        : '.nav, .list-group',
-    ACTIVE                : '.active',
+    TAB_ACTIVE            : '.tab__link-wrap--active',
+    CONTENT_ACTIVE        : '.tab__content-item--active',
     DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
     DROPDOWN_TOGGLE       : '.dropdown-toggle',
     DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .active'
@@ -66,10 +68,11 @@ const Tab = (($) => {
     // public
 
     show() {
+      console.log('el', $(this._element).parent())
       if (this._element.parentNode &&
           this._element.parentNode.nodeType === Node.ELEMENT_NODE &&
-          $(this._element).hasClass(ClassName.ACTIVE) ||
-          $(this._element).hasClass(ClassName.DISABLED)) {
+          $(this._element).parent().hasClass(ClassName.ACTIVE) ||
+          $(this._element).parent().hasClass(ClassName.DISABLED)) {
         return
       }
 
@@ -140,7 +143,8 @@ const Tab = (($) => {
     // private
 
     _activate(element, container, callback) {
-      const active          = $(container).find(Selector.ACTIVE)[0]
+      console.log('eeelllll', element)
+      const active          = $(container).find(Selector.CONTENT_ACTIVE)[0]
       const isTransitioning = callback
         && Util.supportsTransitionEnd()
         && (active && $(active).hasClass(ClassName.FADE))
@@ -181,6 +185,7 @@ const Tab = (($) => {
         active.setAttribute('aria-expanded', false)
       }
 
+      console.log('eleemmm', element)
       $(element).addClass(ClassName.ACTIVE)
       element.setAttribute('aria-expanded', true)
 
