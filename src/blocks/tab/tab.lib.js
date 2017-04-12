@@ -68,7 +68,6 @@ const Tab = (($) => {
     // public
 
     show() {
-      console.log('el', $(this._element).parent())
       if (this._element.parentNode &&
           this._element.parentNode.nodeType === Node.ELEMENT_NODE &&
           $(this._element).parent().hasClass(ClassName.ACTIVE) ||
@@ -143,7 +142,6 @@ const Tab = (($) => {
     // private
 
     _activate(element, container, callback) {
-      console.log('eeelllll', element)
       const active          = $(container).find(Selector.CONTENT_ACTIVE)[0]
       const isTransitioning = callback
         && Util.supportsTransitionEnd()
@@ -172,7 +170,8 @@ const Tab = (($) => {
 
     _transitionComplete(element, active, isTransitioning, callback) {
       if (active) {
-        $(active).removeClass(ClassName.ACTIVE)
+
+        $(active).removeClass(ClassName.CONTENT_ACTIVE)
 
         const dropdownChild = $(active.parentNode).find(
           Selector.DROPDOWN_ACTIVE_CHILD
@@ -185,8 +184,14 @@ const Tab = (($) => {
         active.setAttribute('aria-expanded', false)
       }
 
-      console.log('eleemmm', element)
-      $(element).addClass(ClassName.ACTIVE)
+      const tab = $(element).hasClass('tab__link')
+
+      if (tab) {
+        $(element).parent().addClass(ClassName.TAB_ACTIVE)
+      } else {
+        $(element).addClass(ClassName.CONTENT_ACTIVE)
+      }
+
       element.setAttribute('aria-expanded', true)
 
       if (isTransitioning) {

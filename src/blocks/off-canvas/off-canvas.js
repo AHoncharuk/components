@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
 
   document.addEventListener('click', function(event) {
-    console.log('target', event.target)
     if(event.target.dataset.toggle === 'off-canvas') {
       event.preventDefault();
       offCanvasToggle();
