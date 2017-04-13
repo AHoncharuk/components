@@ -36,7 +36,7 @@ const Tab = (($) => {
 
   const Selector = {
     DROPDOWN              : '.dropdown',
-    NAV_LIST_GROUP        : '.nav, .list-group',
+    NAV_LIST_GROUP        : '.tab__links',
     TAB_ACTIVE            : '.tab__link-wrap--active',
     CONTENT_ACTIVE        : '.tab__content-item--active',
     DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
@@ -81,7 +81,7 @@ const Tab = (($) => {
       const selector    = Util.getSelectorFromElement(this._element)
 
       if (listElement) {
-        previous = $.makeArray($(listElement).find(Selector.ACTIVE))
+        previous = $.makeArray($(listElement).find(Selector.TAB_ACTIVE))
         previous = previous[previous.length - 1]
       }
 
@@ -142,7 +142,15 @@ const Tab = (($) => {
     // private
 
     _activate(element, container, callback) {
-      const active          = $(container).find(Selector.CONTENT_ACTIVE)[0]
+      const tabCont = $(container).hasClass('tab__links')
+      let active
+
+      if (tabCont) {
+        active = $(container).find(Selector.TAB_ACTIVE)[0]
+      } else {
+        active = $(container).find(Selector.CONTENT_ACTIVE)[0]
+      }
+
       const isTransitioning = callback
         && Util.supportsTransitionEnd()
         && (active && $(active).hasClass(ClassName.FADE))
@@ -169,7 +177,17 @@ const Tab = (($) => {
     }
 
     _transitionComplete(element, active, isTransitioning, callback) {
+      console.log('jul', active)
       if (active) {
+
+        const tab = $(active).hasClass('tab__link-wrap')
+
+        if (tab) {
+          $(active).removeClass(ClassName.TAB_ACTIVE)
+        } else {
+          $(active).removeClass(ClassName.CONTENT_ACTIVE)
+        }
+
 
         $(active).removeClass(ClassName.CONTENT_ACTIVE)
 
