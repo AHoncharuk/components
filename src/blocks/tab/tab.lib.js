@@ -26,12 +26,13 @@ const Tab = (($) => {
   }
 
   const ClassName = {
-    DROPDOWN_MENU     : 'dropdown__menu',
-    TAB_ACTIVE        : 'tab__link-wrap--active',
-    CONTENT_ACTIVE    : 'tab__content-item--active',
-    DISABLED          : 'tab__link-wrap--disabled',
-    FADE              : 'fade',
-    SHOW              : 'show'
+    DROPDOWN_MENU          : 'dropdown__menu',
+    DROPDOWN_MENU_ACTIVE   : 'dropdown__item--active',
+    TAB_ACTIVE             : 'tab__link-wrap--active',
+    CONTENT_ACTIVE         : 'tab__content-item--active',
+    DISABLED               : 'tab__link-wrap--disabled',
+    FADE                   : 'fade',
+    SHOW                   : 'show'
   }
 
   const Selector = {
@@ -40,8 +41,8 @@ const Tab = (($) => {
     TAB_ACTIVE            : '.tab__link-wrap--active',
     CONTENT_ACTIVE        : '.tab__content-item--active',
     DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-    DROPDOWN_TOGGLE       : '.dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD : '> .dropdown-menu .active'
+    DROPDOWN_TOGGLE       : '.dropdown__toggle',
+    DROPDOWN_ACTIVE_CHILD : '.dropdown__menu .dropdown__item--active'
   }
 
 
@@ -190,12 +191,11 @@ const Tab = (($) => {
           $(active).removeClass(ClassName.CONTENT_ACTIVE)
         }
 
-
-        $(active).removeClass(ClassName.CONTENT_ACTIVE)
-
         const dropdownChild = $(active.parentNode).find(
           Selector.DROPDOWN_ACTIVE_CHILD
         )[0]
+
+        console.log('nk', $(active.parentNode).find('.dropdown'))
 
         if (dropdownChild) {
           $(dropdownChild).removeClass(ClassName.ACTIVE)
