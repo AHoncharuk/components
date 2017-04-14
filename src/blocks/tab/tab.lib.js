@@ -108,6 +108,7 @@ const Tab = (($) => {
         target = $(selector)[0]
       }
 
+
       this._activate(
         this._element,
         listElement
@@ -147,6 +148,7 @@ const Tab = (($) => {
 
       if (tabCont) {
         active = $(container).find(Selector.TAB_ACTIVE)[0]
+        this._addHash(element)
       } else {
         active = $(container).find(Selector.CONTENT_ACTIVE)[0]
       }
@@ -177,7 +179,7 @@ const Tab = (($) => {
     }
 
     _transitionComplete(element, active, isTransitioning, callback) {
-      console.log('jul', active)
+
       if (active) {
 
         const tab = $(active).hasClass('tab__link-wrap')
@@ -233,6 +235,27 @@ const Tab = (($) => {
       if (callback) {
         callback()
       }
+    }
+
+    _addHash(element) {
+      const target = $(element).attr('href') || $(element).data('target')
+      const win = window
+      const windowLocation = win.location
+      const windowHistory = win.history
+      const windowHash = windowLocation.hash
+
+      if (target && history && history.pushState && history.replaceState) {
+        const stateObject = {
+          url: target
+        }
+
+        if (windowHash && stateObject.url !== windowHash) {
+          windowHistory.pushState(stateObject, document.title, win.location.pathname + target)
+        } else {
+          windowHistory.replaceState(stateObject, document.title, win.location.pathname + target)
+        }
+      }
+
     }
 
 
