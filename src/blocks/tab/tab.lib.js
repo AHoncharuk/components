@@ -26,13 +26,13 @@ const Tab = (($) => {
   }
 
   const ClassName = {
-    DROPDOWN_MENU          : 'dropdown__menu',
-    DROPDOWN_MENU_ACTIVE   : 'dropdown__item--active',
-    TAB_ACTIVE             : 'tab__link-wrap--active',
-    CONTENT_ACTIVE         : 'tab__content-item--active',
-    DISABLED               : 'tab__link-wrap--disabled',
-    FADE                   : 'fade',
-    SHOW                   : 'show'
+    DROPDOWN_MENU            : 'dropdown__menu',
+    DROPDOWN_TOGGLE_ACTIVE   : 'dropdown__toggle--active',
+    TAB_ACTIVE               : 'tab__link-wrap--active',
+    CONTENT_ACTIVE           : 'tab__content-item--active',
+    DISABLED                 : 'tab__link-wrap--disabled',
+    FADE                     : 'fade',
+    SHOW                     : 'show'
   }
 
   const Selector = {
@@ -149,6 +149,7 @@ const Tab = (($) => {
 
       if (tabCont) {
         active = $(container).find(Selector.TAB_ACTIVE)[0]
+
         this._addHash(element)
       } else {
         active = $(container).find(Selector.CONTENT_ACTIVE)[0]
@@ -191,11 +192,11 @@ const Tab = (($) => {
           $(active).removeClass(ClassName.CONTENT_ACTIVE)
         }
 
+console.log('acp', active)
+
         const dropdownChild = $(active.parentNode).find(
           Selector.DROPDOWN_ACTIVE_CHILD
         )[0]
-
-        console.log('nk', $(active.parentNode).find('.dropdown'))
 
         if (dropdownChild) {
           $(dropdownChild).removeClass(ClassName.ACTIVE)
@@ -205,7 +206,10 @@ const Tab = (($) => {
       }
 
       const tab = $(element).hasClass('tab__link')
-
+      // const dropdown = $(element).hasClass('dropdown__item')
+      // else if (dropdown) {
+      //   $(element).addClass(ClassName.DROPDOWN_MENU_ACTIVE)
+      // }
       if (tab) {
         $(element).parent().addClass(ClassName.TAB_ACTIVE)
       } else {
@@ -223,10 +227,9 @@ const Tab = (($) => {
 
       if (element.parentNode &&
           $(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
-
         const dropdownElement = $(element).closest(Selector.DROPDOWN)[0]
         if (dropdownElement) {
-          $(dropdownElement).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.ACTIVE)
+          $(dropdownElement).find(Selector.DROPDOWN_TOGGLE).addClass(ClassName.DROPDOWN_TOGGLE_ACTIVE)
         }
 
         element.setAttribute('aria-expanded', true)

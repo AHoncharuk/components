@@ -95,6 +95,10 @@ $dropdown-header-color:          $gray-light !default;
   &:empty::after {
     margin-left: 0;
   }
+
+  &--active {
+    background: $black;
+  }
 }
 
 .dropdown__menu {
