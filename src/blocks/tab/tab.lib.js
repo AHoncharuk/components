@@ -82,7 +82,7 @@ const Tab = (($) => {
       const selector    = Util.getSelectorFromElement(this._element)
 
       if (listElement) {
-        previous = $.makeArray($(listElement).find(Selector.TAB_ACTIVE))
+        previous = $.makeArray($(listElement))
         previous = previous[previous.length - 1]
       }
 
@@ -191,8 +191,6 @@ const Tab = (($) => {
         } else {
           $(active).removeClass(ClassName.CONTENT_ACTIVE)
         }
-
-console.log('acp', active)
 
         const dropdownChild = $(active.parentNode).find(
           Selector.DROPDOWN_ACTIVE_CHILD
