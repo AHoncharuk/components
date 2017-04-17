@@ -80,6 +80,21 @@ $dropdown-header-color:          $gray-light !default;
 
 .dropdown__toggle {
 
+  &--tab {
+    display: block;
+    padding: 0.3em 0.7rem;
+    border: 1px solid transparent;
+    font-size: $font-size;
+    color: #808080;
+    text-decoration: none;
+    background-color: #f7f7f9;
+
+    &.dropdown__toggle--active {
+      color: $text-color;
+      background-color: #fff;
+    }
+  }
+
   &::after {
     display: inline-block;
     width: 0;

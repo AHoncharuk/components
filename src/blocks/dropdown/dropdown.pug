@@ -1,6 +1,6 @@
 mixin dropdown()
   .dropdown
-    button#dropdownMenuButton.btn--success.dropdown__toggle(type='button' data-toggle='dropdown' aria-haspopup='true', aria-expanded='false')
+    button#dropdownMenuButton.dropdown__toggle.dropdown__toggle--tab(type='button' data-toggle='dropdown' aria-haspopup='true', aria-expanded='false')
       | Dropdown button
     .dropdown__menu(aria-labelledby='dropdownMenuButton')
       h4.dropdown__header skdjhfskfjshfksjh
@@ -8,4 +8,4 @@ mixin dropdown()
       a.dropdown__item.dropdown__item--disabled(href='#') Another action
       .dropdown__divider
       a.dropdown__item(href='#') Another action
-      a.dropdown__item(href='#') Something else here
+      a(class='dropdown__item' href='#something', aria-controls='something', role='tab', data-toggle='tab') Messages

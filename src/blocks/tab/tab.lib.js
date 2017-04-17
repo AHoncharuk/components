@@ -28,6 +28,7 @@ const Tab = (($) => {
   const ClassName = {
     DROPDOWN_MENU            : 'dropdown__menu',
     DROPDOWN_TOGGLE_ACTIVE   : 'dropdown__toggle--active',
+    DROPDOWN_CHILD_ACTIVE    : 'dropdown__item--active',
     TAB_ACTIVE               : 'tab__link-wrap--active',
     CONTENT_ACTIVE           : 'tab__content-item--active',
     DISABLED                 : 'tab__link-wrap--disabled',
@@ -42,6 +43,7 @@ const Tab = (($) => {
     CONTENT_ACTIVE        : '.tab__content-item--active',
     DATA_TOGGLE           : '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
     DROPDOWN_TOGGLE       : '.dropdown__toggle',
+    DROPDOWN_TOGGLE_ACTIVE: '.dropdown__toggle--active',
     DROPDOWN_ACTIVE_CHILD : '.dropdown__menu .dropdown__item--active'
   }
 
@@ -144,12 +146,15 @@ const Tab = (($) => {
     // private
 
     _activate(element, container, callback) {
-      const tabCont = $(container).hasClass('tab__links')
+      const tab = $(element).hasClass('tab__link')
+      const dropdown = $(element).hasClass('dropdown__item')
       let active
 
-      if (tabCont) {
+      if (tab) {
         active = $(container).find(Selector.TAB_ACTIVE)[0]
-
+        this._addHash(element)
+      } else if (dropdown) {
+        active = $(container).find('.dropdown__toggle')[0]
         this._addHash(element)
       } else {
         active = $(container).find(Selector.CONTENT_ACTIVE)[0]
@@ -185,9 +190,13 @@ const Tab = (($) => {
       if (active) {
 
         const tab = $(active).hasClass('tab__link-wrap')
+        const toggle = $(active).hasClass('dropdown__toggle')
 
         if (tab) {
           $(active).removeClass(ClassName.TAB_ACTIVE)
+          $(active).parents('.tab__links').find(Selector.DROPDOWN_TOGGLE_ACTIVE).removeClass(ClassName.DROPDOWN_TOGGLE_ACTIVE)
+        } else if (toggle) {
+          $(active).parents('.tab__links').find(Selector.TAB_ACTIVE).removeClass(ClassName.TAB_ACTIVE)
         } else {
           $(active).removeClass(ClassName.CONTENT_ACTIVE)
         }
@@ -197,20 +206,20 @@ const Tab = (($) => {
         )[0]
 
         if (dropdownChild) {
-          $(dropdownChild).removeClass(ClassName.ACTIVE)
+          $(dropdownChild).removeClass(ClassName.DROPDOWN_CHILD_ACTIVE)
         }
 
         active.setAttribute('aria-expanded', false)
       }
 
       const tab = $(element).hasClass('tab__link')
-      // const dropdown = $(element).hasClass('dropdown__item')
+      const dropdown = $(element).hasClass('dropdown__item')
       // else if (dropdown) {
       //   $(element).addClass(ClassName.DROPDOWN_MENU_ACTIVE)
       // }
       if (tab) {
         $(element).parent().addClass(ClassName.TAB_ACTIVE)
-      } else {
+      } else if (!dropdown) {
         $(element).addClass(ClassName.CONTENT_ACTIVE)
       }
 
