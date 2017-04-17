@@ -9,11 +9,8 @@ mixin tab()
         +e('a')(class='link' href='#profile', aria-controls='profile', role='tab', data-toggle='tab') Profile
       +e('li')(class='link-wrap' role='presentation')
         +e('a')(class='link' href='#messages', aria-controls='messages', role='tab', data-toggle='tab') Messages
-      +e('li')(class='link-wrap' role='presentation')
-        +dropdown() 
     +e(class='content-wrapper')
       +e(class='content-item tab__content-item--active' id='home' role='tabpanel') 1111111111111
       +e(class='content-item' id='profile' role='tabpanel') 22222222222222
       +e(class='content-item' id='messages' role='tabpanel') 1111111111111
       +e(class='content-item' id='settings' role='tabpanel') 22222222222222
-      +e(class='content-item' id='something' role='tabpanel') something
