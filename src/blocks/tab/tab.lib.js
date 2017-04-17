@@ -154,7 +154,7 @@ const Tab = (($) => {
         active = $(container).find(Selector.TAB_ACTIVE)[0]
         this._addHash(element)
       } else if (dropdown) {
-        active = $(container).find('.dropdown__toggle')[0]
+        active = $(container).find('.dropdown__toggle--active')[0]
         this._addHash(element)
       } else {
         active = $(container).find(Selector.CONTENT_ACTIVE)[0]
@@ -191,11 +191,13 @@ const Tab = (($) => {
 
         const tab = $(active).hasClass('tab__link-wrap')
         const toggle = $(active).hasClass('dropdown__toggle')
+        console.log('55', element)
 
         if (tab) {
           $(active).removeClass(ClassName.TAB_ACTIVE)
           $(active).parents('.tab__links').find(Selector.DROPDOWN_TOGGLE_ACTIVE).removeClass(ClassName.DROPDOWN_TOGGLE_ACTIVE)
         } else if (toggle) {
+          console.log('111', $(active).parents('.tab__links'))
           $(active).parents('.tab__links').find(Selector.TAB_ACTIVE).removeClass(ClassName.TAB_ACTIVE)
         } else {
           $(active).removeClass(ClassName.CONTENT_ACTIVE)
