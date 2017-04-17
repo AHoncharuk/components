@@ -1,7 +1,41 @@
-// В этом файле должны быть стили только для БЭМ-блока grid-layout, его элементов, 
+// В этом файле должны быть стили только для БЭМ-блока grid-layout, его элементов,
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Не пишите здесь другие селекторы.
 
+body {
+  background: #1c1e22;
+  color: $white;
+}
+
 .grid-layout {
-  
+  display: flex;
+}
+
+.grid-layout__item {
+  width: 50%;
+  margin-left: auto;
+}
+
+@supports (display: grid) {
+
+
+  .grid-layout {
+    display: grid;
+    background-color: red;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    // align-items: center;
+  }
+
+  .grid-layout__item {
+    margin: initinal;
+    width: auto;
+    // min-height: 100vh;
+    border: 1px solid white;
+      grid-template-rows: minmax(100vh, 1fr);
+
+    display: grid;
+    grid-column-start: 2;
+    align-items: center;
+  }
 }

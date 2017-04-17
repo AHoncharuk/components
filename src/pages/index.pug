@@ -4,19 +4,10 @@ include /blocks/off-canvas/off-canvas
 include /blocks/btn/btn
 include /blocks/tab/tab
 include /blocks/dropdown/dropdown
+include /blocks/grid-layout/grid-layout
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  //- +dropdown()
-  //- +off-canvas()
-  //- +btn('button') Hello
-  //- +tab()
-  +btn('button')(data-toggle='collapse' data-target='#content' aria-expanded='false' aria-controls='collapseExample') Показать информацию
-  #content.collapse
-    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit quibusdam veniam debitis natus doloribus dolor provident ab aperiam nesciunt pariatur!
-  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, eum.
-
-  +tab()
-  +dropdown(true)
+  +grid-layout()
