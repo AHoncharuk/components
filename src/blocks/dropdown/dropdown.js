@@ -1,9 +1,12 @@
 import dropdown from './dropdown.lib.js'
 
-$('.dropdown__toggle').dropdown()
+$('.dropdown').on('hide.bs.dropdown', function() {
+  const activeItem = $(this).find('.dropdown__item--active')
+  const toggle = $(this).find('.dropdown__toggle')
 
-// console.log('dt', $('.dropdown-toggle'))
-
-// $('.dropdown__toggle').on('hide.bs.dropdown', () => {
-//   console.log('jul')
-// })
+  if (activeItem) {
+    toggle.addClass('dropdown__toggle--active')
+  } else {
+    toggle.removeClass('dropdown__toggle--active')
+  }
+})

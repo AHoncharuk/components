@@ -51,7 +51,6 @@ import Util from '../../js/utils/util'
      DATA_TOGGLE   : '[data-toggle="dropdown"]',
      MENU          : '.dropdown__menu',
      FORM_CHILD    : '.dropdown form',
-     MENU          : '.dropdown__menu',
      NAVBAR_NAV    : '.navbar-nav',
      VISIBLE_ITEMS : '.dropdown__menu .dropdown__item:not(.disabled)'
    }
