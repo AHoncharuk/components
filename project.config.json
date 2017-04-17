@@ -26,9 +26,9 @@
     "off-canvas": [],
     "burger": [],
     "menu": [],
-    "tooltip": [],
     "tab": [],
-    "collapse": []
+    "collapse": [],
+    "grid-layout": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
