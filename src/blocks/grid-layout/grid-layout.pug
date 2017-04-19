@@ -1,20 +1,23 @@
 mixin grid-layout()
   +b(class='grid-layout')&attributes(attributes)
-    +e(class='item')
-      .content
-        h2.title A 
-    +e(class='item')
-      .content
-        h2.title B       
-    +e(class='item')
-      .content
-        h2.title C        
-    +e(class='item')
-      .content
-        h2.title D
-    +e(class='item')
-      .content
-        h2.title E
-    +e(class='item')
-      .content
-        h2.title F
+    +e(class='header') Header
+    +e(class='sidebar') Sidebar
+    +e(class='content') Content
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title A 
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title B       
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title C        
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title D
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title E
+    //- +e(class='item')
+    //-   .content
+    //-     h2.title F
