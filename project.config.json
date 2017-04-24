@@ -22,13 +22,13 @@
     "form": [],
     "dropdown": [],
     "label": [],
-    "tooltip": [],
     "off-canvas": [],
     "burger": [],
     "menu": [],
     "tab": [],
     "collapse": [],
-    "grid-layout": []
+    "grid-layout": [],
+    "modal": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

@@ -5,9 +5,11 @@ include /blocks/btn/btn
 include /blocks/tab/tab
 include /blocks/dropdown/dropdown
 include /blocks/grid-layout/grid-layout
+include /blocks/modal/modal
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  +grid-layout()
+  +btn('button')(data-toggle='modal' data-target='#myModal') Открыть
+  +modal()
