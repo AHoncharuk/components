@@ -1,5 +1,11 @@
 import modal from './modal.lib.js'
 
-$('#autorization').on('shown.bs.modal', function () {
-  // $('#myInput').focus()
+// $('#myModal').on('hidden.bs.modal', function () {
+//   // $('#myInput').focus()
+//   console.log('njul')
+// })
+
+$('#myModal').modal({
+  keyboard: true,
+  toggle: false
 })
