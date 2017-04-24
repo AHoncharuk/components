@@ -89,7 +89,7 @@ $('#myModal').modal('show')
 Manually opens a modal. Returns to the caller before the modal has actually been shown (i.e. before the shown.bs.modal event occurs).
 
 ## Hide
-$('#myModal').modal('hide')
+{% highlight js %}$('#myModal').modal('hide'){% endhighlight %}
 Manually hides a modal. Returns to the caller before the modal has actually been hidden (i.e. before the hidden.bs.modal event occurs).
 
 
