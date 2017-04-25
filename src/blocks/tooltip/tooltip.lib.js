@@ -234,7 +234,6 @@ const Tooltip = (($) => {
     }
 
     show() {
-      console.log('showtime')
       if ($(this.element).css('display') === 'none') {
         throw new Error('Please use show on visible elements')
       }
