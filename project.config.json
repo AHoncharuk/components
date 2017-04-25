@@ -28,7 +28,8 @@
     "tab": [],
     "collapse": [],
     "grid-layout": [],
-    "modal": []
+    "modal": [],
+    "tooltip": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

@@ -6,10 +6,12 @@ include /blocks/tab/tab
 include /blocks/dropdown/dropdown
 include /blocks/grid-layout/grid-layout
 include /blocks/modal/modal
+include /blocks/tooltip/tooltip
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  +btn('button')(data-toggle='modal' data-target='#myModal') Открыть
-  +modal()
+  +tab()
+  +btn('button')(style='margin-top: 200px; margin-left: 200px;' data-toggle='tooltip' title='<i>Good morning d</i>') Открыть
+  +tooltip()

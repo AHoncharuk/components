@@ -1,6 +1,7 @@
 import tooltip from './tooltip.lib'
-
-$('.btn').tooltip({
-  title: 'hello',
-  trigger: 'click hover'
+//
+$('[data-toggle="tooltip"]').tooltip({
+  html: true,
+  animation: true,
+  placement: 'left'
 })

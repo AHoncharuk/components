@@ -23,6 +23,11 @@ $border-radius: 5px;
   word-wrap: break-word;
   opacity: 0;
 
+  &--fade {
+    opacity: 0;
+    @include transition($transition-fade);
+  }
+
   &--show {
     opacity: $tooltip-opacity;
   }
