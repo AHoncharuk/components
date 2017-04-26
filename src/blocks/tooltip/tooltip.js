@@ -1,7 +1,7 @@
 import tooltip from './tooltip.lib'
 //
-$('[data-toggle="tooltip"]').tooltip(options)
+$('[data-toggle="tooltip"]').tooltip()
 
 $('[data-toggle="tooltip"]').on('shown.bs.tooltip', function () {
-  console.log('tadaa');
+  console.log('tadaa')
 })

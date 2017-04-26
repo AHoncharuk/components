@@ -29,7 +29,8 @@
     "collapse": [],
     "grid-layout": [],
     "modal": [],
-    "tooltip": []
+    "tooltip": [],
+    "popover": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
