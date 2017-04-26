@@ -182,6 +182,7 @@ $popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
 // Offset the popover to account for the popover arrow
 .popover__title {
   padding: $popover-title-padding-y $popover-title-padding-x;
+  margin-top: 0;
   margin-bottom: 0; // Reset the default from Reboot
   font-size: $font-size;
   color: $popover-title-color;
