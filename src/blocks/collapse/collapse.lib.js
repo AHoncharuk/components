@@ -35,9 +35,9 @@ const Collapse = (($) => {
   }
 
   const ClassName = {
-    SHOW       : 'show',
+    SHOW       : 'collapse--show',
     COLLAPSE   : 'collapse',
-    COLLAPSING : 'collapsing',
+    COLLAPSING : 'collapse--collapsing',
     COLLAPSED  : 'collapsed'
   }
 

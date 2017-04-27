@@ -1,0 +1,101 @@
+// В этом файле должны быть стили только для БЭМ-блока card, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Не пишите здесь другие селекторы.
+
+$card-spacer-y:            .75rem !default;
+$card-spacer-x:            1.25rem !default;
+$card-border-width:        1px !default;
+$card-border-radius:       $border-radius !default;
+$card-border-color:        rgba($black,.125) !default;
+$card-border-radius-inner: calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-cap-bg:              $gray-lightest !default;
+$card-bg:                  $white !default;
+
+$card-link-hover-color:    $white !default;
+$card-img-overlay-padding: 1.25rem !default;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $card-bg;
+  border: $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+}
+
+.card__block {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  flex: 1 1 auto;
+  padding: $card-spacer-x;
+}
+
+.card__title {
+  margin-bottom: $card-spacer-y;
+  word-break: break-all;
+}
+
+.card__subtitle {
+  margin-top: -($card-spacer-y / 2);
+  margin-bottom: 0;
+}
+
+.card__text:last-child {
+  margin-bottom: 0;
+}
+
+.card__link {
+  @include hover {
+    text-decoration: none;
+  }
+
+  + .card__link {
+    margin-left: $card-spacer-x;
+  }
+}
+
+.card__header {
+  padding: $card-spacer-y $card-spacer-x;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width solid $card-border-color;
+
+  &:first-child {
+    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+  }
+}
+
+.card__footer {
+  padding: $card-spacer-y $card-spacer-x;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+  }
+}
+
+.card__img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $card-img-overlay-padding;
+}
+
+.card__img {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-radius($card-border-radius-inner);
+}
+
+// Card image caps
+.card--img-top .card__img {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-top-radius($card-border-radius-inner);
+}
+
+.card--img-bottom .card__img {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  @include border-bottom-radius($card-border-radius-inner);
+}

@@ -30,7 +30,8 @@
     "grid-layout": [],
     "modal": [],
     "tooltip": [],
-    "popover": []
+    "popover": [],
+    "card": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

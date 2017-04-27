@@ -1,0 +1,10 @@
+mixin card(data)
+  +b(class='card')&attributes(attributes)
+    if(data.header)
+      +e(class='header')= data.header
+    if(data.image)
+      +e('img')(src=data.image.src class='image' alt=data.image.name)  
+    +e(class='block')
+      +e('h4')(class='title')= data.title
+      +e('p')(class='text')= data.text
+      +btn('button') Нажми  

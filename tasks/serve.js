@@ -9,7 +9,7 @@ const { PORT, OPEN, NODE_ENV, TUNNEL } = process.env
 gulp.task('serve', ['build'], () => {
   browserSync.init({
     files: `${dirs.buildPath}**/*`,
-    port: PORT || 8080,
+    port: PORT || 3000,
     open: !!OPEN,
     reloadOnRestart: true,
     server: {
