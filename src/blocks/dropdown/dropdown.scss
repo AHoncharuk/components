@@ -1,11 +1,10 @@
 // // Для импорта в диспетчер подключений: @import './src/blocks/dropdown/dropdown.scss';
 //
 @import '../../scss/variables.scss';     // только для удобства обращения к переменным
-// The dropdown wrapper (`<div>`)
 
 $caret-width: 10px;
-$zindex-dropdown-backdrop:  990 !default;
-$zindex-dropdown:           1000 !default;
+$zindex-dropdown-backdrop:       990 !default;
+$zindex-dropdown:                1000 !default;
 
 $dropdown-min-width:             10rem !default;
 $dropdown-padding-y:             .5rem !default;
@@ -92,6 +91,44 @@ $dropdown-header-color:          $gray-light !default;
     &.dropdown__toggle--active {
       color: $text-color;
       background-color: #fff;
+    }
+  }
+
+  &--btn {
+    position: relative;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.125em;
+    margin: 0;
+    padding: $field-padding-top $field-padding-horizontal $field-padding-bottom;
+    font-size: 1em;
+    font-family: inherit;
+    line-height: $line-height;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    white-space: nowrap;
+    @include button-color($text-color, $gray-lighter, $gray-light);
+    @include border-radius($border-radius);
+    background-image: none;
+    user-select: none;
+    cursor: pointer;
+
+    &.dropdown__toggle--hover,
+    &:hover {
+      @include button-color--hover($text-color, $gray-lighter, $gray-light);
+      text-decoration: none;
+    }
+
+    &.dropdown__toggle--active,
+    &:active,
+    &:focus {
+      @include button-color--active($text-color, $gray-lighter, $gray-light);
+      text-decoration: none;
+      outline: 0;
+      box-shadow: none;
     }
   }
 

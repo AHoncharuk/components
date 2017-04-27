@@ -1,11 +1,10 @@
 mixin dropdown()
-  .dropdown
-    button#dropdownMenuButton.dropdown__toggle.dropdown__toggle--tab(type='button' data-toggle='dropdown' aria-haspopup='true', aria-expanded='false')
+  +b(class='dropdown')&attributes(attributes)
+    +e('button')(type='button' class='toggle dropdown__toggle--btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
       | Dropdown button
-    .dropdown__menu(aria-labelledby='dropdownMenuButton')
-      h4.dropdown__header skdjhfskfjshfksjh
-      a.dropdown__item(href='#') Action
-      a.dropdown__item.dropdown__item--disabled(href='#') Another action
-      .dropdown__divider
-      a.dropdown__item(href='#') Another action
-      //- a(class='dropdown__item' href='#something', aria-controls='something', role='tab', data-toggle='tab') Messages
+    +e('div')(class='menu' aria-labelledby='')
+      +e('h4')(class='header') Header
+      +e('a')(href='#' class='item') Item 1
+      +e('a')(href='#' class='item dropdown__item--disabled') Item 2
+      +e('div')(class='divider') 
+      +e('a')(href='#' class='item') Item 3
