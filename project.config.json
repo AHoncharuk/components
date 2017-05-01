@@ -31,7 +31,8 @@
     "modal": [],
     "tooltip": [],
     "popover": [],
-    "card": []
+    "card": [],
+    "accordion": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
