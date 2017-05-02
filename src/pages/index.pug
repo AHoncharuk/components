@@ -22,18 +22,17 @@ block content
   //- div Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta officiis, illum expedita ratione aspernatur illo qui unde atque! Nesciunt quo incidunt in, sequi! Voluptatibus ratione sequi temporibus quod est ipsam porro sed itaque. Ipsa repellat expedita iste deserunt error quam ab, non totam perferendis voluptatem illum fugiat quis nisi ratione placeat laudantium adipisci maxime nesciunt incidunt at. Consequatur hic voluptatibus explicabo minus rem. Obcaecati eos sit accusantium iusto culpa cupiditate voluptates commodi ullam possimus voluptatum aspernatur asperiores qui voluptate ipsum dolores libero, nisi nostrum error totam soluta eius illo! Nemo asperiores fugit omnis beatae minus sequi nobis recusandae delectus corporis vel neque repellat quaerat quidem provident blanditiis, sunt adipisci, maiores fuga facere, autem. Blanditiis placeat temporibus quam est dolorem sequi perspiciatis corrupti repellendus sunt perferendis cupiditate, ipsa dicta facere vitae ipsum architecto, debitis ducimus libero, dignissimos voluptatibus! Suscipit voluptatem maxime aliquid, similique, libero sapiente ab ex impedit nostrum porro iste voluptate! Facere incidunt non, consectetur consequuntur possimus voluptatibus autem vero sit blanditiis ad necessitatibus impedit cumque delectus sunt recusandae. Sed amet, rem et tenetur enim tempora quos accusamus veniam iste aspernatur molestias! Iusto voluptas quae sunt nostrum praesentium provident facilis accusamus consectetur, eum eligendi, dolorum repellendus asperiores error suscipit? Provident at labore, tenetur aspernatur quod earum, ex nam minima pariatur voluptate, molestias, consectetur! Expedita minima nulla veritatis, sunt aliquid. Ea est consequuntur, aperiam dolorem cum explicabo delectus, reiciendis fugit officia voluptatem in quod ducimus consectetur itaque natus aut quisquam veritatis nam maxime? Natus ullam amet quis tenetur, libero consequuntur officia at placeat ea soluta, deserunt eligendi! A adipisci dicta eaque nemo, repudiandae ipsa ea officia mollitia, nulla incidunt ut, dignissimos veniam excepturi debitis enim sint illum eligendi architecto voluptates ipsam quod? Quibusdam asperiores voluptates maxime enim, laboriosam omnis, architecto. Eum dicta tenetur a sequi cum perferendis eligendi nihil quae, voluptatum!
   div(style='width: 600px; margin: 0 auto;')
     +accordion({
-      id: 'accordion',
-      items: [{
-        header: 'Hello',
-        text: '<div>1111</div>'
-      },
-      {
-      header: 'Hello',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero officiis laboriosam commodi, nesciunt, autem neque consequatur sapiente unde perferendis maiores labore quae deleniti, eveniet asperiores distinctio nemo molestiae at? Tenetur eos nisi unde inventore nostrum vitae expedita consectetur dolore quibusdam amet animi, illum fugiat cupiditate quisquam quia, doloribus magnam esse.'
-      },
-      {
-      show: true,
-      header: 'Hello',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero officiis laboriosam commodi, nesciunt, autem neque consequatur sapiente unde perferendis maiores labore quae deleniti, eveniet asperiores distinctio nemo molestiae at? Tenetur eos nisi unde inventore nostrum vitae expedita consectetur dolore quibusdam amet animi, illum fugiat cupiditate quisquam quia, doloribus magnam esse.'
-      }]
+      id: 'accordion'
     })
+      +card({
+        accId: 'accordion',
+        index: 0,
+        show: true,
+        header: 'Hello'
+      }) Всем привет
+      +card({
+        accId: 'accordion',
+        index: 1,
+        header: 'ОООО'
+      })
+        b Hiiiiii
