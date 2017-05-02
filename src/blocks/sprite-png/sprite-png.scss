@@ -18,8 +18,8 @@ $temp-icon-left-arrow-width: 32px;
 $temp-icon-left-arrow-height: 32px;
 $temp-icon-left-arrow-total-width: 68px;
 $temp-icon-left-arrow-total-height: 32px;
-$temp-icon-left-arrow-image: '../img/sprite-07425827286206186.png';
-$temp-icon-left-arrow: (0px, 0px, 0px, 0px, 32px, 32px, 68px, 32px, '../img/sprite-07425827286206186.png', 'temp-icon-left-arrow', );
+$temp-icon-left-arrow-image: '../img/sprite-04959054868668318.png';
+$temp-icon-left-arrow: (0px, 0px, 0px, 0px, 32px, 32px, 68px, 32px, '../img/sprite-04959054868668318.png', 'temp-icon-left-arrow', );
 $temp-icon-right-arrow-name: 'temp-icon-right-arrow';
 $temp-icon-right-arrow-x: 36px;
 $temp-icon-right-arrow-y: 0px;
@@ -29,13 +29,13 @@ $temp-icon-right-arrow-width: 32px;
 $temp-icon-right-arrow-height: 32px;
 $temp-icon-right-arrow-total-width: 68px;
 $temp-icon-right-arrow-total-height: 32px;
-$temp-icon-right-arrow-image: '../img/sprite-07425827286206186.png';
-$temp-icon-right-arrow: (36px, 0px, -36px, 0px, 32px, 32px, 68px, 32px, '../img/sprite-07425827286206186.png', 'temp-icon-right-arrow', );
+$temp-icon-right-arrow-image: '../img/sprite-04959054868668318.png';
+$temp-icon-right-arrow: (36px, 0px, -36px, 0px, 32px, 32px, 68px, 32px, '../img/sprite-04959054868668318.png', 'temp-icon-right-arrow', );
 $spritesheet-width: 68px;
 $spritesheet-height: 32px;
-$spritesheet-image: '../img/sprite-07425827286206186.png';
+$spritesheet-image: '../img/sprite-04959054868668318.png';
 $spritesheet-sprites: ($temp-icon-left-arrow, $temp-icon-right-arrow, );
-$spritesheet: (68px, 32px, '../img/sprite-07425827286206186.png', $spritesheet-sprites, );
+$spritesheet: (68px, 32px, '../img/sprite-04959054868668318.png', $spritesheet-sprites, );
 
 // The provided mixins are intended to be used with the array-like variables
 //
