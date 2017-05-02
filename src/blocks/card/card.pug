@@ -11,8 +11,8 @@ mixin card(data)
                   aria-expanded='true' 
                   aria-controls=data.accId+'-'+data.index)= data.item.header 
         if data.item.show          
-          +b(id=data.accId+'-'+data.index 
-            class='collapse collapse--show' 
+          +e(id=data.accId+'-'+data.index 
+            class='collapse collapse collapse--show' 
             role='tabpanel' 
             aria-labelledby=data.accId+'heading'+'-'+data.index)
             +e(class='block')
@@ -20,8 +20,8 @@ mixin card(data)
                 +e('h4')(class='title')= data.item.title
               +e('p')(class='text')= data.item.text
         else
-          +b(id=data.accId+'-'+data.index 
-            class='collapse' 
+          +e(id=data.accId+'-'+data.index 
+            class='collapse collapse' 
             role='tabpanel' 
             aria-labelledby=data.accId+'heading'+'-'+data.index)              
             +e(class='block')
@@ -37,15 +37,15 @@ mixin card(data)
                   aria-expanded='true' 
                   aria-controls=data.accId+'-'+data.index)= data.header 
         if data.show          
-          +b(id=data.accId+'-'+data.index 
-            class='collapse collapse--show' 
+          +e(id=data.accId+'-'+data.index 
+            class='collapse collapse collapse--show' 
             role='tabpanel' 
             aria-labelledby=data.accId+'heading'+'-'+data.index)
             +e(class='block')
               block
         else
-          +b(id=data.accId+'-'+data.index 
-            class='collapse' 
+          +e(id=data.accId+'-'+data.index 
+            class='collapse collapse' 
             role='tabpanel' 
             aria-labelledby=data.accId+'heading'+'-'+data.index)              
             +e(class='block')
