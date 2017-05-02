@@ -2,31 +2,54 @@ include ../link/link
 
 mixin card(data)
   if data.accId
-    +b(class='card')&attributes(attributes)
-      +e(class='header' role='tab')
-        +link()(data-toggle='collapse' 
-                data-parent='#'+data.accId 
-                href='#'+data.accId+'-'+data.index 
-                aria-expanded='true' 
-                aria-controls=data.accId+'-'+data.index)= data.header 
-      if data.show          
-        +b(id=data.accId+'-'+data.index 
-          class='collapse collapse--show' 
-          role='tabpanel' 
-          aria-labelledby=data.accId+'heading'+'-'+data.index)
-          +e(class='block')
-            if data.title
-              +e('h4')(class='title')= data.title
-            +e('p')(class='text')= data.text
-      else
-        +b(id=data.accId+'-'+data.index 
-          class='collapse' 
-          role='tabpanel' 
-          aria-labelledby=data.accId+'heading'+'-'+data.index)              
-          +e(class='block')
-            if data.title
-              +e('h4')(class='title')= data.title
-            +e('p')(class='text')= data.title
+    if data.item
+      +b(class='card')&attributes(attributes)
+        +e(class='header' role='tab')
+          +link()(data-toggle='collapse' 
+                  data-parent='#'+data.accId 
+                  href='#'+data.accId+'-'+data.index 
+                  aria-expanded='true' 
+                  aria-controls=data.accId+'-'+data.index)= data.item.header 
+        if data.item.show          
+          +b(id=data.accId+'-'+data.index 
+            class='collapse collapse--show' 
+            role='tabpanel' 
+            aria-labelledby=data.accId+'heading'+'-'+data.index)
+            +e(class='block')
+              if data.title
+                +e('h4')(class='title')= data.item.title
+              +e('p')(class='text')= data.item.text
+        else
+          +b(id=data.accId+'-'+data.index 
+            class='collapse' 
+            role='tabpanel' 
+            aria-labelledby=data.accId+'heading'+'-'+data.index)              
+            +e(class='block')
+              if data.title
+                +e('h4')(class='title')= data.item.title
+              +e('p')(class='text')= data.item.text
+    else
+      +b(class='card')&attributes(attributes)
+        +e(class='header' role='tab')
+          +link()(data-toggle='collapse' 
+                  data-parent='#'+data.accId 
+                  href='#'+data.accId+'-'+data.index 
+                  aria-expanded='true' 
+                  aria-controls=data.accId+'-'+data.index)= data.header 
+        if data.show          
+          +b(id=data.accId+'-'+data.index 
+            class='collapse collapse--show' 
+            role='tabpanel' 
+            aria-labelledby=data.accId+'heading'+'-'+data.index)
+            +e(class='block')
+              block
+        else
+          +b(id=data.accId+'-'+data.index 
+            class='collapse' 
+            role='tabpanel' 
+            aria-labelledby=data.accId+'heading'+'-'+data.index)              
+            +e(class='block')
+              block 
   else  
     +b(class='card')&attributes(attributes)
       if(data.header)

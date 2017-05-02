@@ -2,14 +2,12 @@ include ../card/card
 
 mixin accordion(data)
   +b('div')(id=data.id role='tablist' aria-multiselectable='false')
-  if data.auto
-    each item, index in data.items
-      +card({
-        accId: data.id,
-        index: index,
-        header: item.header,
-        text: item.text,
-        title: item.title    
-      })
-  else 
-    block    
+    if data.items
+      each item, index in data.items
+        +card({
+          accId: data.id,
+          index: index,
+          item: item    
+        })
+    else
+      block
