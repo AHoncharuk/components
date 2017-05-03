@@ -53,9 +53,22 @@ mixin card(data)
   else  
     +b(class='card')&attributes(attributes)
       if(data.header)
-        +e(class='header' role='tab')= data.header || 'Хедер'
-      if(data.image)
-        +e('img')(src=data.image.src class='image' alt=data.image.name)  
-      +e(class='block')
-        +e('h4')(class='title')= data.title || 'Заголовок'
-        +e('p')(class='text')= data.text || 'Текст'
+        +e(class='header' role='tab')= data.header
+      else if(data.image && data.image.position === 'top' || data.image && data.image.position === 'overlay')
+        +e('img')(src=data.image.src class='img' alt=data.image.name)
+      if(data.image.position === 'overlay')    
+        +e(class='img-overlay')
+          if data.title
+            +e('h4')(class='title')= data.title
+          if data.text  
+            +e('p')(class='text')= data.text
+          block
+      else
+        +e(class='block')
+          if data.title
+            +e('h4')(class='title')= data.title
+          if data.text  
+            +e('p')(class='text')= data.text
+          block
+      if(data.image && data.image.position === 'bottom')
+        +e('img')(src=data.image.src class='img' alt=data.image.name)

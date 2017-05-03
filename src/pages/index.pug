@@ -18,24 +18,11 @@ block head
 block content
   +tab()
   +btn('button')(style='margin-top: 200px; margin-left: 200px;' data-toggle='tooltip' title='<i>Good morning d</i>') Открыть
-  +btn('link')(style='margin-top: 200px; margin-left: 400px;' data-toggle='collapse' data-target='#content') Collapse
+  +btn('link')(data-toggle='collapse' data-target='#content') Collapse
   +collapse()(id='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eligendi ratione ullam dolorem quod dolore nihil. Totam dignissimos soluta numquam.
   div(style='width: 600px; margin: 0 auto;')
     +accordion({
-      id: 'accordion',
-      items: [{
-        header: 'Первый блок',
-        text: 'Ура, я первый'
-      },
-      {
-        show: true,
-        header: 'Второй блок',
-        text: 'Опять второй'
-      },
-      {
-        header: 'Третий блок',
-        text: 'Ну третьим быть тоже неплохо'
-      }]
+      id: 'accordion'
     })
       +card({
         accId: 'accordion',
@@ -50,3 +37,12 @@ block content
       })
         +e(class='title') hhhihihihihihih
         +e(class='text') ttttttttttttt
+    +card({
+      title: 'hello',
+      text: 'what a crazy day today',
+      image: {
+        position: 'overlay',
+        src: 'img/car.jpg',
+        name: 'Super Car'
+      }
+    })

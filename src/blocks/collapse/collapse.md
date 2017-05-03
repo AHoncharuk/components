@@ -21,6 +21,13 @@ The collapse plugin utilizes a few classes to handle the heavy lifting:
 - `.collapse--show` shows the content
 - `.collapse--collapsing` is added when the transition starts, and removed when it finishes
 
+<pre>
++btn('link')(url='#content' data-toggle='collapse') Collapse
+</pre>
+
+<pre>
++collapse()(id='content') Текст Текст Текст
+</pre>
 
 ### Via data attributes
 Just add `data-toggle="collapse"` and a `data-target` to the element to automatically assign control of a collapsible element. The `data-target` attribute accepts a CSS selector to apply the collapse to. Be sure to add the class `collapse` to the collapsible element. If you'd like it to default open, add the additional class `show`.

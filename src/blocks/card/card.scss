@@ -93,9 +93,11 @@ $card-img-overlay-padding: 1.25rem !default;
 .card--img-top .card__img {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-top-radius($card-border-radius-inner);
+  @include border-bottom-radius(0);
 }
 
 .card--img-bottom .card__img {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-bottom-radius($card-border-radius-inner);
+  @include border-top-radius(0);
 }
