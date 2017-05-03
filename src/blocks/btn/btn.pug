@@ -3,7 +3,7 @@ include ../input/input
 
 mixin btn(type, href)
   if type === 'button' || type === 'submit'
-    +b('button')(class='btn sfs' type=type)&attributes(attributes)
+    +b('button')(class='btn' type=type)&attributes(attributes)
       block
   else if type === 'link'
     +link(href)(class='btn')&attributes(attributes)
