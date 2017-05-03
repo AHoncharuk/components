@@ -50,8 +50,9 @@ mixin card(data)
             aria-labelledby=data.accId+'heading'+'-'+data.index)              
             +e(class='block')
               block 
-  else  
-    +b(class='card')&attributes(attributes)
+  else
+    //- -var cardClass = data.image.position === 'top' ? 'card--img-top' : data.image.position === 'bottom' ? 'card--img-bottom' : ''   
+    +b(class=cardClass)&attributes(attributes)
       if(data.header)
         +e(class='header' role='tab')= data.header
       else if(data.image && data.image.position === 'top' || data.image && data.image.position === 'overlay')
