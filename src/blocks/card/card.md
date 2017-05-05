@@ -59,4 +59,4 @@
 </pre>
 
 ## Использование "card", для реализации аккордеона
-Читайте в подробном описании на <a href="https://github.com/ArtNekki/components/blob/experiments/src/blocks/accordion/accordion.md">Этой странице</a>
+Читайте в подробном описании на <a href="https://github.com/ArtNekki/components/blob/experiments/src/blocks/accordion/accordion.md">этой странице</a>
