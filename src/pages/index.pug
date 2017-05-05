@@ -22,27 +22,27 @@ block content
   +collapse()(id='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eligendi ratione ullam dolorem quod dolore nihil. Totam dignissimos soluta numquam.
   div(style='width: 600px; margin: 0 auto;')
     +accordion({
-      id: 'accordion'
-    })
-      +card({
-        accId: 'accordion',
-        index: 0,
+      id: 'accordion',
+      items: [{
+        header: 'Первый блок',
+        text: 'Ура, я первый'
+      },
+      {
         show: true,
-        header: 'Hello'
-      }) Всем привет
-      +card({
-        accId: 'accordion',
-        index: 1,
-        header: 'ОООО'
-      })
-        +e(class='title') hhhihihihihihih
-        +e(class='text') ttttttttttttt
+        header: 'Второй блок',
+        text: 'Опять второй'
+      },
+      {
+        header: 'Третий блок',
+        text: 'Ну, третьим быть тоже неплохо'
+      }]
+    })
     +card({
       title: 'hello',
       text: 'what a crazy day today',
       image: {
-        position: 'bottom',
+        position: 'overlay',
         src: 'img/car.jpg',
         name: 'Super Car'
       }
-    })
+    }) 
