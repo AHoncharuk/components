@@ -1,3 +1,6 @@
+## Подключение
+Что бы использовать блок "collapse", его необходимо подключить в кофиге проекта(project.config.json).
+
 ## Использование
 Можно использовать либо тег `a` с атрибутом `href`, или  тег `button` с атрибутом `data-target`. В обоих случаях необходим атрибут `data-toggle="collapse"`.
 
@@ -99,6 +102,8 @@ $('#myCollapsible').collapse({
 </table>
 
 
+<pre>
 $('#myCollapsible').on('hidden.bs.collapse', function () {
   // do something…
 })
+</pre>
