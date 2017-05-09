@@ -12,6 +12,7 @@ include /blocks/accordion/accordion
 include /blocks/card/card
 include /blocks/collapse/collapse
 include /blocks/alert/alert
+include /blocks/to-top/to-top
 
 block head
   - var pageTitle = 'Components';
@@ -21,9 +22,4 @@ block content
   +btn('button')(style='margin-top: 200px; margin-left: 200px;' data-toggle='tooltip' title='<i>Good morning d</i>') Открыть
   +btn('link')(data-toggle='collapse' data-target='#content') Collapse
   +collapse()(id='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eligendi ratione ullam dolorem quod dolore nihil. Totam dignissimos soluta numquam.
-  +alert({
-    title: 'Hello',
-    dismiss: true
-  })
-    p dfsdflsdj sdflkjsd fsdf lskdjfs d
-    p dsflk 1123 das d12312  324234 2
+  +to-top()
