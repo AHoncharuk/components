@@ -122,7 +122,7 @@ $popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
       border-bottom-color: $popover-arrow-color;
     }
 
-    .popover-title::before {
+    .popover__title::before {
       position: absolute;
       top: 0;
       left: 50%;

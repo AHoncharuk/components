@@ -118,19 +118,26 @@
 }
 
 .btn--close {
+  position: relative;
   display: block;
   min-height: 100%;
-  @include size(20px);
+  @include size(25px);
   padding: 0;
   background: none;
   border: none;
+  border-radius: 0;
+
+  svg {
+    fill: $white;
+    background: none;
+  }
 
   &:hover {
     background-color: transparent;
     border: none;
-  }
-}
 
-.nekki {
-  stroke: $white;
+    svg {
+      fill: rgba($white, 0.7);
+    }
+  }
 }

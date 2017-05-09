@@ -1,17 +1,18 @@
 include ../btn/btn
 
-mixin alert(heading, dismiss)
+mixin alert(data)
   - data=data || {}
-    if dismiss
-      +b(class='alert alert--dismissible alert--fade alert--show' role='alert')&attributes(attributes)
-        if heading
-          +e('h4')(class='heading')= heading 
-        +e(class='close')
-          +btn('close')(data-dismiss='alert' aria-label='close')
-            +e('span')(aria-hidden='true')
+    if data.dismiss
+      +b('article')(class='alert alert--dismissible alert--fade alert--show' role='alert')&attributes(attributes)
+        +e('header')(class='header')
+          if data.title
+            +e('span')(class='title')= data.title
+          +e(class='close')
+            +btn('close')(data-dismiss='alert' aria-label='close')
+              +e('span')(aria-hidden='true')
         block
     else  
-      +b(class='alert' role='alert')&attributes(attributes)
-        if heading
-          +e('h4')(class='heading')= heading 
+      +b('article')(class='alert' role='alert')&attributes(attributes)
+        if data.title
+          +e('span')(class='title')= data.title
         block
