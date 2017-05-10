@@ -13,6 +13,7 @@ include /blocks/collapse/collapse
 include /blocks/alert/alert
 include /blocks/to-top/to-top
 include /blocks/breadcrumbs/breadcrumbs
+include /blocks/pagination/pagination
 
 block head
   - var pageTitle = 'Components';
@@ -22,19 +23,37 @@ block content
   //- +btn('button')(style='margin-top: 200px; margin-left: 200px;' data-toggle='tooltip' title='<i>Good morning d</i>') Открыть
   //- +btn('link')(data-toggle='collapse' data-target='#content') Collapse
   //- +collapse()(id='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eligendi ratione ullam dolorem quod dolore nihil. Totam dignissimos soluta numquam.
-  +breadcrumbs([
+  //- +breadcrumbs([
+  //-   {
+  //-     name: 'Home',
+  //-     link: '...'
+  //-   },
+  //-   {
+  //-     name: 'Portfolio',
+  //-     link: '...'
+  //-   },
+  //-   {
+  //-     name: 'Contacts',
+  //-     link: '...',
+  //-     active: true
+  //-   }
+  //- ])
+  //- +to-top()
+  +pagination([
     {
-      name: 'Home',
-      link: '...'
+      number: 1
     },
     {
-      name: 'Portfolio',
-      link: '...'
+      number: '...'
     },
     {
-      name: 'Contacts',
-      link: '...',
+      number: 3,
       active: true
+    },
+    {
+      number: '...'
+    },
+    {
+      number: 5
     }
   ])
-  //- +to-top()

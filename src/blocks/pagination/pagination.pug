@@ -1,0 +1,7 @@
+mixin pagination(data)
+  +b(class='pagination')&attributes(attributes)
+    each item in data
+      if item.active
+        +e('span')(class='item')= item.number
+      else
+        +e('a')(href='' class='item pagination__item--active')= item.number

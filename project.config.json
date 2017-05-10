@@ -33,7 +33,8 @@
     "card": [],
     "accordion": [],
     "to-top": [],
-    "breadcrumbs": []
+    "breadcrumbs": [],
+    "pagination": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
