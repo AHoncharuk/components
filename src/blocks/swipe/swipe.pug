@@ -1,0 +1,5 @@
+mixin swipe(data)
+  +b(id=data.id class='swipe')&attributes(attributes)
+    +e(class='wrap')
+      each item in data.items
+        +e(class='item')= item.text

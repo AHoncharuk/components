@@ -15,6 +15,7 @@ include /blocks/to-top/to-top
 include /blocks/breadcrumbs/breadcrumbs
 include /blocks/pagination/pagination
 include /blocks/nouislider/nouislider
+include /blocks/swipe/swipe
 
 block head
   - var pageTitle = 'Components';
@@ -40,4 +41,17 @@ block content
   //-   }
   //- ])
   //- +to-top()
-  +nouislider('slider')
+  +swipe({
+    id: 'swipe-slider',
+    items: [
+      {
+        text: 'Slide 1'
+      },
+      {
+        text: 'Slide 2'
+      },
+      {
+        text: 'Slide 3'
+      }
+    ]
+  })

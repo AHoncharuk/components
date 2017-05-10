@@ -123,6 +123,7 @@
     "nouislider": "^9.2.0",
     "parsleyjs": "^2.7.0",
     "sass-mq": "^3.3.2",
+    "swipejs": "^2.2.6",
     "webpack": "^1.12.9",
     "webpack-stats-logger": "^1.0.1"
   }
