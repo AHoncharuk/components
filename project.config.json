@@ -34,7 +34,8 @@
     "accordion": [],
     "to-top": [],
     "breadcrumbs": [],
-    "pagination": []
+    "pagination": [],
+    "nouislider": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

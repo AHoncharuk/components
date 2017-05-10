@@ -14,6 +14,7 @@ include /blocks/alert/alert
 include /blocks/to-top/to-top
 include /blocks/breadcrumbs/breadcrumbs
 include /blocks/pagination/pagination
+include /blocks/nouislider/nouislider
 
 block head
   - var pageTitle = 'Components';
@@ -39,21 +40,4 @@ block content
   //-   }
   //- ])
   //- +to-top()
-  +pagination([
-    {
-      number: 1
-    },
-    {
-      number: '...'
-    },
-    {
-      number: 3,
-      active: true
-    },
-    {
-      number: '...'
-    },
-    {
-      number: 5
-    }
-  ])
+  +nouislider('slider')
