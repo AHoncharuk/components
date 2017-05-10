@@ -32,7 +32,8 @@
     "popover": [],
     "card": [],
     "accordion": [],
-    "to-top": []
+    "to-top": [],
+    "breadcrumbs": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

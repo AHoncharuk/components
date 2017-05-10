@@ -1,0 +1,7 @@
+mixin breadcrumbs(data)
+  +b('nav')(class='breadcrumbs')&attributes(attributes)
+    each item in data
+      if item.active
+        +e('span')(class='item breadcrumbs__item--active')= item.name
+      else
+        +e('a')(href=item.link class='item')= item.name

@@ -5,6 +5,7 @@ $( document ).ready(function() {
   $('#toTop').hide().on('click', function(event){
     event.preventDefault();
     $('body').animate({scrollTop:0}, 300);
+    console.log('nekki');
   });
 
   $(window).on('scroll', function(){
