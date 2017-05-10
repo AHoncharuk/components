@@ -6,28 +6,35 @@
   padding: 0;
   list-style: none;
   margin: $line-height 0;
+}
 
-  &__item {
+.breadcrumbs__item {
+  display: inline-block;
+  margin-right: 0.6em;
+  white-space: nowrap;
+
+  &:not(:last-child):after {
+    content: '>';
     display: inline-block;
-    margin-right: 0.6em;
-    white-space: nowrap;
-
-    &:not(:last-child):after {
-      content: '>';
-      display: inline-block;
-      margin-left: 0.8em;
-      color: $gray;
-    }
+    margin-left: 0.8em;
+    color: $gray;
   }
 
-  &__link {
+  &--active {
+    .breadcrumbs__link {
+      color: $text-color;
+      cursor: default;
+    }
+  }
+}
+
+.breadcrumbs__link {
+  color: $gray;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
     color: $text-color;
     text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: $text-color;
-      text-decoration: none;
-    }
   }
 }
