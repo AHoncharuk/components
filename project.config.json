@@ -36,7 +36,8 @@
     "breadcrumbs": [],
     "pagination": [],
     "nouislider": [],
-    "swipe": []
+    "swipe": [],
+    "owl-carousel": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

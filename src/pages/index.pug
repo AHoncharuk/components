@@ -16,6 +16,7 @@ include /blocks/breadcrumbs/breadcrumbs
 include /blocks/pagination/pagination
 include /blocks/nouislider/nouislider
 include /blocks/swipe/swipe
+include /blocks/owl-carousel/owl-carousel
 
 block head
   - var pageTitle = 'Components';
@@ -41,17 +42,31 @@ block content
   //-   }
   //- ])
   //- +to-top()
-  +swipe({
-    id: 'swipe-slider',
+  //- +swipe({
+  //-   id: 'swipe-slider',
+  //-   items: [
+  //-     {
+  //-       text: 'Slide 1'
+  //-     },
+  //-     {
+  //-       text: 'Slide 2'
+  //-     },
+  //-     {
+  //-       text: 'Slide 3'
+  //-     }
+  //-   ]
+  //- })
+  +owl-carousel({
+    id: 'owl-carousel',
     items: [
       {
-        text: 'Slide 1'
+        content: 'Slide 1'
       },
       {
-        text: 'Slide 2'
+        content: 'Slide 2'
       },
       {
-        text: 'Slide 3'
+        content: 'Slide 3'
       }
     ]
   })

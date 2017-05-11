@@ -121,6 +121,7 @@
     "jquery": "^3.1.1",
     "modernizr": "^3.3.1",
     "nouislider": "^9.2.0",
+    "owl.carousel": "^2.2.0",
     "parsleyjs": "^2.7.0",
     "sass-mq": "^3.3.2",
     "swipejs": "^2.2.6",
