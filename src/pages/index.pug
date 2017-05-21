@@ -1,72 +1,15 @@
 extends /blocks/layout/layout
 
-include /blocks/off-canvas/off-canvas
-include /blocks/btn/btn
-include /blocks/tab/tab
-include /blocks/dropdown/dropdown
-include /blocks/modal/modal
-include /blocks/tooltip/tooltip
-include /blocks/collapse/collapse
-include /blocks/accordion/accordion
-include /blocks/card/card
-include /blocks/collapse/collapse
-include /blocks/alert/alert
-include /blocks/to-top/to-top
-include /blocks/breadcrumbs/breadcrumbs
-include /blocks/pagination/pagination
-include /blocks/nouislider/nouislider
-include /blocks/swipe/swipe
-include /blocks/owl-carousel/owl-carousel
+include ../blocks/group/group
 
 block head
   - var pageTitle = 'Components';
 
 block content
-  //- +tab()
-  //- +btn('button')(style='margin-top: 200px; margin-left: 200px;' data-toggle='tooltip' title='<i>Good morning d</i>') Открыть
-  //- +btn('link')(data-toggle='collapse' data-target='#content') Collapse
-  //- +collapse()(id='content') Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae eligendi ratione ullam dolorem quod dolore nihil. Totam dignissimos soluta numquam.
-  //- +breadcrumbs([
-  //-   {
-  //-     name: 'Home',
-  //-     link: '...'
-  //-   },
-  //-   {
-  //-     name: 'Portfolio',
-  //-     link: '...'
-  //-   },
-  //-   {
-  //-     name: 'Contacts',
-  //-     link: '...',
-  //-     active: true
-  //-   }
-  //- ])
-  //- +to-top()
-  //- +swipe({
-  //-   id: 'swipe-slider',
-  //-   items: [
-  //-     {
-  //-       text: 'Slide 1'
-  //-     },
-  //-     {
-  //-       text: 'Slide 2'
-  //-     },
-  //-     {
-  //-       text: 'Slide 3'
-  //-     }
-  //-   ]
-  //- })
-  +owl-carousel({
-    id: 'owl-carousel',
-    items: [
-      {
-        content: 'Slide 1'
-      },
-      {
-        content: 'Slide 2'
-      },
-      {
-        content: 'Slide 3'
-      }
-    ]
-  })
+  +b(class='slack')&attributes(attributes)
+    +e('aside')(class='sidebar')
+      +group()
+    +e('header')(class='header')
+      | dssfssdfsdf
+    +e('main')(class='main')
+    +e('footer')(class='footer')

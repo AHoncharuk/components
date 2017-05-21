@@ -37,7 +37,10 @@
     "pagination": [],
     "nouislider": [],
     "swipe": [],
-    "owl-carousel": []
+    "owl-carousel": [],
+    "slack": [],
+    "group": [],
+    "icon": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

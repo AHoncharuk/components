@@ -1,0 +1,14 @@
+mixin group(data)
+  +b('section')(class='group' role='navigation')&attributes(attributes)
+    +e('header')(class='header')
+      +e('h2')(class='title') Channels
+        +e('span')(class='count') (6)
+      +e('button')(type='button' class='add' data-toggle='tooltip' aria-label='Create new channel' title='Create new channel')
+        svg(width='25', height='25')
+          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='img/sprite-svg.svg#add')
+ 
+    +e('ul')(class='list')
+      +e('li')(class='item')
+        +e('a')(class='link')
+          svg(width='25', height='25' class='icon')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='img/sprite-svg.svg#hash')     
