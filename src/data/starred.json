@@ -1,0 +1,12 @@
+{
+  "title": "Starred",
+  "label": "Starred conversations",
+  "items": [
+    {
+      "name": "random",
+      "icon": {
+        "name": "add"
+      }
+    }
+  ]
+}

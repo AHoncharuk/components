@@ -7,7 +7,7 @@ mixin group(data)
         +e('span')(class='count')= data.count || ''
       +e('button')(type='button' class='add' data-toggle='tooltip' aria-label=data.label title=data.label)
         +icon({ name: 'add' })
- 
+   
     +e('ul')(class='list')
       each item in data.items
         +e('li')(class='item')

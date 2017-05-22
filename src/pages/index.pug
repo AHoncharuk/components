@@ -8,6 +8,7 @@ block head
 block content
   +b(class='slack')&attributes(attributes)
     +e('aside')(class='sidebar')
+      +group(getData('starred'))
       +group(getData('channels'))
       +group({ title: 'Direct messages', count: 5, label: 'Create new channel', items: [{ name: 'netology', icon: { name: 'add' } }, { name: 'netology', icon: { name: 'add' } }, { name: 'netology', icon: { name: 'add' } }, { name: 'netology', icon: { name: 'add' } }] })
     +e('header')(class='header')
