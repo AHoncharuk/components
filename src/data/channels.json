@@ -1,0 +1,31 @@
+{
+  title: 'Channels',
+  count: 6,
+  label: 'Create new channel',
+  items: [
+    {
+      name: 'netology',
+      icon: {
+        name: 'add'
+      }
+    },
+    {
+      name: 'netology',
+      icon: {
+        name: 'add'
+      }
+    },
+    {
+      name: 'netology',
+      icon: {
+        name: 'add'
+      }
+    },
+    {
+      name: 'netology',
+      icon: {
+        name: 'add'
+      }
+    }
+  ]
+}
